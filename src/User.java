@@ -8,8 +8,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class User {
-    private String firstname, surname, email, usertype, gender, cellnumber, dob;
-    private int userID;
+    private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, userID;
 
     public User(String fname, String sname, String mail, String acctype, String gender, String celnum,
             String birthdate) {
@@ -21,28 +20,41 @@ public class User {
         this.gender = gender;
         this.cellnumber = celnum;
         this.dob = birthdate;
+        this.username = createUsername();
+        this.password = createPass();
     }
 
     // Setter Methods
-    private int setUserID() {
-        int IDnum = 0;
-
-        return IDnum;
+    private String setUserID() {
+        int IDnum = 1;
+        Scanner in;
+        File file = new File("Userdb.txt");
+        try {
+            in = new Scanner(file);
+            while (in.hasNextLine()) {
+                IDnum++;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + String.valueOf(e));
+            return String.valueOf(0);
+        }
+        in.close();
+        return String.valueOf(IDnum);
     }
 
-    public void setfname(String fname) {
+    public void setFname(String fname) {
         this.firstname = fname;
     }
 
-    public void setsname(String sname) {
+    public void setSname(String sname) {
         this.surname = sname;
     }
 
-    public void setmail(String mail) {
+    public void setMail(String mail) {
         this.email = mail;
     }
 
-    public void settype(String type) {
+    public void setAcctype(String type) {
         this.usertype = type;
     }
 
@@ -56,6 +68,14 @@ public class User {
 
     public void setBirthdate(String birthdate) {
         this.dob = birthdate;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String pass) {
+        this.password = pass;
     }
 
     // Getter Methods
@@ -87,17 +107,31 @@ public class User {
         return dob;
     }
 
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     // Output info
     public void printInfo() {
         System.out.printf(
-                "UserID: %f\nName: %s\nSurname: %s\nEmail: %s\nAccount Type: %s\nGender: %s\nCell Number: %s\nDate of Birth: %s\n\n",
-                userID, firstname,
+                "UserID: %f\nUsername: %s\\n" + //
+                        "Name: %s\nSurname: %s\nEmail: %s\nAccount Type: %s\nGender: %s\nCell Number: %s\nDate of Birth: %s\n\n",
+                userID, username, firstname,
                 surname, email, usertype, gender, cellnumber, dob);
     }
 
     @Override
     public String toString() {
-        return firstname + "," + surname + "," + email + "," + usertype + "," + gender + "," + cellnumber + "," + dob;
+        return userID + "," + firstname + "," + surname + "," + email + "," + usertype + "," + gender + "," + cellnumber
+                + "," + dob + "," + username + "," + password;
     }
 
     public void writetoFile(String filename) {
@@ -113,4 +147,17 @@ public class User {
         }
     }
 
+    private String createPass() {
+        String passname = firstname.substring(0, 3);
+        String passSurname = surname.substring(surname.length() - 3, surname.length());
+        long RadNum = Math.round(Math.random() * 99);
+        String password = RadNum + passname + passSurname;
+        return password;
+    }
+
+    private String createUsername() {
+        char intial = firstname.charAt(0);
+        username = intial + surname;
+        return username;
+    }
 }

@@ -9,13 +9,11 @@ import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -26,8 +24,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class App extends Application {
-    Main fn = new Main();
-    String name;
+    LocalDate dateoBirth;
+    String gendertoogleval, acctoogleval, firname, surname, email, celnum, date;
+    String[] userdetails;
+
+    public void registernewuser(String[] userinput) {
+
+        User user = new User(userinput[0], userinput[1], userinput[2], userinput[3], userinput[4], userinput[5],
+                userinput[6]);
+        user.writetoFile("src\\Userdb.txt");
+
+        System.out.println("Done");
+    }
 
     public void start(Stage stage) {
         Label lTitle = new Label("Registration");
@@ -76,12 +84,7 @@ public class App extends Application {
         Button clearbtn = new Button("Clear");
         Button submitbtn = new Button("Submit");
         Button quitbtn = new Button("Exit");
-        ButtonBar regBar = new ButtonBar();
-        ButtonBar.setButtonData(clearbtn, ButtonData.CANCEL_CLOSE);
-        ButtonBar.setButtonData(submitbtn, ButtonData.OK_DONE);
-        ButtonBar.setButtonData(quitbtn, ButtonData.FINISH);
-        regBar.getButtons().addAll(clearbtn, submitbtn, quitbtn);
-        regBar.setButtonOrder("+CO+I");
+        HBox regBar = new HBox(10.0, clearbtn, submitbtn, quitbtn);
 
         clearbtn.setOnAction((evt) -> {
             tfieldFname.clear();
@@ -98,15 +101,17 @@ public class App extends Application {
         });
 
         submitbtn.setOnAction((evt) -> {
-            LocalDate dateoBirth = dpick.getValue();
-            String date = dateoBirth.format(DateTimeFormatter.ofPattern("dd/MM/YYYY"));
-            String gendertoogleval = selecteRadioButton.getText();
-            String acctoogleval = selecteRadioButton2.getText();
-            String firname = tfieldFname.getText();
-            String surname = tfieldSname.getText();
-            String email = tfieldEmail.getText();
-            String celnum = tfieldCelnum.getText();
-            fn.registernewuser(firname, surname, email, acctoogleval, gendertoogleval, celnum, date);
+            dateoBirth = dpick.getValue();
+            date = dateoBirth.format(DateTimeFormatter.ofPattern("dd/MM/YYYY"));
+            gendertoogleval = selecteRadioButton.getText();
+            acctoogleval = selecteRadioButton2.getText();
+            firname = tfieldFname.getText();
+            surname = tfieldSname.getText();
+            email = tfieldEmail.getText();
+            celnum = tfieldCelnum.getText();
+            String[] userdetails = { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
+
+            registernewuser(userdetails);
         });
 
         VBox gendergrpBox = new VBox(10.0, malebtn, femalebtn, otherbtn);

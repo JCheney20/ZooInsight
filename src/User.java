@@ -28,7 +28,7 @@ public class User {
     private String setUserID() {
         int IDnum = 1;
         Scanner in;
-        File file = new File("Userdb.txt");
+        File file = new File("src\\Userdb.txt");
         try {
             in = new Scanner(file);
             while (in.hasNextLine()) {
@@ -36,7 +36,7 @@ public class User {
             }
         } catch (Exception e) {
             System.out.println("Error: " + String.valueOf(e));
-            return String.valueOf(0);
+            return String.valueOf(1);
         }
         in.close();
         return String.valueOf(IDnum);

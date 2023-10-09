@@ -2,6 +2,9 @@ package src;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -25,8 +28,8 @@ import javafx.scene.text.Font;
 
 public class App extends Application {
     LocalDate dateoBirth;
-    String gendertoogleval, acctoogleval, firname, surname, email, celnum, date;
-    String[] userdetails;
+    String firname, surname, email, celnum, date;
+    String[] userdetails = new String[7];
 
     public void registernewuser(String[] userinput) {
 
@@ -34,7 +37,9 @@ public class App extends Application {
                 userinput[6]);
         user.writetoFile("src\\Userdb.txt");
 
-        System.out.println("Done");
+        JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Username: " + user.getUsername() + "\nPassword: " + user.getPassword(),
+                "User Details", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void start(Stage stage) {
@@ -65,7 +70,7 @@ public class App extends Application {
         malebtn.setSelected(true);
         RadioButton femalebtn = new RadioButton("Female");
         femalebtn.setToggleGroup(gendergrp);
-        RadioButton otherbtn = new RadioButton("Female");
+        RadioButton otherbtn = new RadioButton("Other");
         otherbtn.setToggleGroup(gendergrp);
 
         ToggleGroup accgrp = new ToggleGroup();
@@ -76,8 +81,6 @@ public class App extends Application {
         ownerbtn.setToggleGroup(accgrp);
         RadioButton adminbtn = new RadioButton("Admin");
         adminbtn.setToggleGroup(accgrp);
-        RadioButton selecteRadioButton = (RadioButton) gendergrp.getSelectedToggle();
-        RadioButton selecteRadioButton2 = (RadioButton) accgrp.getSelectedToggle();
 
         DatePicker dpick = new DatePicker(LocalDate.now());
 
@@ -103,12 +106,15 @@ public class App extends Application {
         submitbtn.setOnAction((evt) -> {
             dateoBirth = dpick.getValue();
             date = dateoBirth.format(DateTimeFormatter.ofPattern("dd/MM/YYYY"));
-            gendertoogleval = selecteRadioButton.getText();
-            acctoogleval = selecteRadioButton2.getText();
+            RadioButton selecteRadioButton = (RadioButton) gendergrp.getSelectedToggle();
+            RadioButton selecteRadioButton2 = (RadioButton) accgrp.getSelectedToggle();
+            String gendertoogleval = selecteRadioButton.getText();
+            String acctoogleval = selecteRadioButton2.getText();
             firname = tfieldFname.getText();
             surname = tfieldSname.getText();
             email = tfieldEmail.getText();
             celnum = tfieldCelnum.getText();
+            Arrays.fill(userdetails, null);
             String[] userdetails = { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
 
             registernewuser(userdetails);

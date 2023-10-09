@@ -1,1 +1,14 @@
-
+Justin,Cheney,admin@test.co.za,Caretaker,Male,0735292679,26/01/2002,JCheney,75Jusney
+test,test,test@example,Caretaker,Male,0529615,03/10/2023,ttest,37tesest
+test,test,yass,Caretaker,Male,515164,30/04/2005,ttest,39tesest
+Juz,Meh,yup,Caretaker,Male,546548542,06/06/2007,JMeh,56JuzMeh
+3139,test,tesing,ihopeitworks@help.com,Caretaker,Male,621616351,30/09/2008,ttesing,32tesing
+602,Juz,tesing,ihopeitworks@help.com,Caretaker,Male,621616351,30/09/2008,Jtesing,23Juzing
+245,Sammy,tesing,ihopeitworks@help.com,Caretaker,Male,621616351,30/09/2008,Stesing,83Saming
+2518,Justin,Cheney,jusche@gmail.com,Caretaker,Male,516210861,06/10/2004,JCheney,77Jusney
+501,Kate,Visser,sjndub@uct,Caretaker,Male,62158623,04/06/2003,KVisser,14Katser
+9285,Kate,Visser,sjd@uct,Caretaker,Male,100551684,04/05/2003,KVisser,84Katser
+7601,Jus,Cheney,sjhdb@example,Admin,Other,013219432,07/10/2006,JCheney,76Jusney
+83,test,test,sadkn@as,Owner,Other,,09/10/2023,ttest,62tesest
+9720,test2,test,sadkn@as,Admin,Female,,09/10/2023,ttest,35tesest
+928,test3,test,sadkn@as,Caretaker,Male,,09/10/2023,ttest,80tesest

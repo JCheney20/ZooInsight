@@ -1,18 +1,17 @@
 package src;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
 
 public class User {
-    private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, userID;
+    private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, IDnumber;
+    long RadNum = Math.round(Math.random() * 10000);
 
     public User(String fname, String sname, String mail, String acctype, String gender, String celnum,
             String birthdate) {
-        this.userID = setUserID();
+        this.IDnumber = String.valueOf(RadNum);
         this.firstname = fname;
         this.surname = sname;
         this.email = mail;
@@ -25,22 +24,6 @@ public class User {
     }
 
     // Setter Methods
-    private String setUserID() {
-        int IDnum = 1;
-        Scanner in;
-        File file = new File("src\\Userdb.txt");
-        try {
-            in = new Scanner(file);
-            while (in.hasNextLine()) {
-                IDnum++;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + String.valueOf(e));
-            return String.valueOf(1);
-        }
-        in.close();
-        return String.valueOf(IDnum);
-    }
 
     public void setFname(String fname) {
         this.firstname = fname;
@@ -78,6 +61,10 @@ public class User {
         this.password = pass;
     }
 
+    public void setUserID(String IDnum) {
+        this.password = IDnum;
+    }
+
     // Getter Methods
     public String getfname() {
         return firstname;
@@ -107,9 +94,11 @@ public class User {
         return dob;
     }
 
-    public String getUserID() {
-        return userID;
-    }
+    /*
+     * public String getUserID() {
+     * return userID;
+     * }
+     */
 
     public String getUsername() {
         return username;
@@ -121,16 +110,16 @@ public class User {
 
     // Output info
     public void printInfo() {
-        System.out.printf(
-                "UserID: %f\nUsername: %s\\n" + //
-                        "Name: %s\nSurname: %s\nEmail: %s\nAccount Type: %s\nGender: %s\nCell Number: %s\nDate of Birth: %s\n\n",
-                userID, username, firstname,
+        System.out.printf(//
+                "Name: %s\nSurname: %s\nEmail: %s\nAccount Type: %s\nGender: %s\nCell Number: %s\nDate of Birth: %s\n\n",
+                username, firstname,
                 surname, email, usertype, gender, cellnumber, dob);
     }
 
     @Override
     public String toString() {
-        return userID + "," + firstname + "," + surname + "," + email + "," + usertype + "," + gender + "," + cellnumber
+        return IDnumber + "," + firstname + "," + surname + "," + email + "," + usertype + "," + gender + ","
+                + cellnumber
                 + "," + dob + "," + username + "," + password;
     }
 

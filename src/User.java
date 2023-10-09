@@ -23,6 +23,19 @@ public class User {
         this.password = createPass();
     }
 
+    public User(String[] user) {
+        this.IDnumber = String.valueOf(RadNum);
+        this.firstname = user[0];
+        this.surname = user[1];
+        this.email = user[2];
+        this.usertype = user[3];
+        this.gender = user[4];
+        this.cellnumber = user[5];
+        this.dob = user[6];
+        this.username = createUsername();
+        this.password = createPass();
+    }
+
     // Setter Methods
 
     public void setFname(String fname) {
@@ -62,46 +75,44 @@ public class User {
     }
 
     public void setUserID(String IDnum) {
-        this.password = IDnum;
+        this.IDnumber = IDnum;
     }
 
     // Getter Methods
     public String getfname() {
-        return firstname;
+        return this.firstname;
     }
 
     public String getsname() {
-        return surname;
+        return this.surname;
     }
 
     public String getmail() {
-        return email;
+        return this.email;
     }
 
     public String getAcctype() {
-        return usertype;
+        return this.usertype;
     }
 
     public String getGender() {
-        return gender;
+        return this.gender;
     }
 
     public String getcelnum() {
-        return cellnumber;
+        return this.cellnumber;
     }
 
     public String getBirthdate() {
-        return dob;
+        return this.dob;
     }
 
-    /*
-     * public String getUserID() {
-     * return userID;
-     * }
-     */
+    public String getUserID() {
+        return this.IDnumber;
+    }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getPassword() {
@@ -112,24 +123,34 @@ public class User {
     public void printInfo() {
         System.out.printf(//
                 "Name: %s\nSurname: %s\nEmail: %s\nAccount Type: %s\nGender: %s\nCell Number: %s\nDate of Birth: %s\n\n",
-                username, firstname,
-                surname, email, usertype, gender, cellnumber, dob);
+                firstname, surname, email, usertype, gender, cellnumber, dob);
     }
 
     @Override
     public String toString() {
+        return firstname + "," + surname + "," + email + "," + usertype + "," + gender + ","
+                + cellnumber
+                + "," + dob;
+    }
+
+    public String toString2() {
         return IDnumber + "," + firstname + "," + surname + "," + email + "," + usertype + "," + gender + ","
                 + cellnumber
                 + "," + dob + "," + username + "," + password;
     }
 
-    public void writetoFile(String filename) {
+    public void writetoFile(String filename, int type) {
         try {
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);
-            out.println(this.toString());
-            out.close();
+            if (type == 1) {
+                out.println(this.toString());
+                out.close();
+            } else {
+                out.println(this.toString2());
+                out.close();
+            }
         } catch (IOException e) {
             System.out.println("Error: " + String.valueOf(e));
             return;

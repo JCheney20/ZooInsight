@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import javax.swing.JOptionPane;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -30,17 +28,7 @@ public class App extends Application {
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];
-
-    public void registernewuser(String[] userinput) {
-
-        User user = new User(userinput[0], userinput[1], userinput[2], userinput[3], userinput[4], userinput[5],
-                userinput[6]);
-        user.writetoFile("src\\Userdb.txt");
-
-        JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);
-        JOptionPane.showMessageDialog(null, "Username: " + user.getUsername() + "\nPassword: " + user.getPassword(),
-                "User Details", JOptionPane.INFORMATION_MESSAGE);
-    }
+    Main fn = new Main();
 
     public void start(Stage stage) {
         Label lTitle = new Label("Registration");
@@ -115,9 +103,11 @@ public class App extends Application {
             email = tfieldEmail.getText();
             celnum = tfieldCelnum.getText();
             Arrays.fill(userdetails, null);
-            String[] userdetails = { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
 
-            registernewuser(userdetails);
+            userdetails = new String[] { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
+
+            fn.registernewuser(userdetails);
+
         });
 
         VBox gendergrpBox = new VBox(10.0, malebtn, femalebtn, otherbtn);

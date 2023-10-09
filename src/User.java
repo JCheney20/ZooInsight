@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 public class User {
     private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, IDnumber;
-    long RadNum = Math.round(Math.random() * 10000);
+    private long RadNum = Math.round(Math.random() * 10000);
 
     public User(String fname, String sname, String mail, String acctype, String gender, String celnum,
             String birthdate) {

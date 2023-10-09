@@ -24,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class App extends Application {
+public class App extends Application { // ! Please ensure program is configured for access to javafx lib
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];

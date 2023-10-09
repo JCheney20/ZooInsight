@@ -1,3 +1,4 @@
 Justin,Cheney,test@example.com,Admin,Male,0753191436,09/10/2023
 Kate,Visser,test@uct.co.za,Caretaker,Female,054354532,09/10/2023
 Sam,Petter-Bowyer,test@pb.com,Owner,Other,0431945912,17/07/2001
+Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,076191361,26/01/2002

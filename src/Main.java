@@ -61,7 +61,7 @@ public class Main {
         in.close();
     }
 
-    public void registernewuser(String[] userinput) {
+    public void registerNewUser(String[] userinput) {
 
         User user = new User(userinput);
         user.writetoFile("src\\Userdb.txt", 1);

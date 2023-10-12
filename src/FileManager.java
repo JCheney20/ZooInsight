@@ -35,7 +35,7 @@ public class FileManager {
             do {
                 attributes = in.nextLine().split(",");
                 records.add(new User(attributes));
-                records.get(count).setUserID(String.valueOf(count + 1));
+                records.get(count).setIDnumber(String.valueOf(count + 1));
                 count++;
             } while (in.hasNextLine());
             Arrays.fill(attributes, null);
@@ -48,14 +48,14 @@ public class FileManager {
         clearFile("src\\Ownerdb.txt");
         clearFile("src\\Admindb.txt");
         for (User user : records) {
-            if (user.getAcctype().equals("Caretaker")) {
-                user.setUserID("C" + user.getUserID());
+            if (user.getUsertype().equals("Caretaker")) {
+                user.setIDnumber("C" + user.getIDnumber());
                 user.writetoFile("src\\Caretakerdb.txt", 2);
-            } else if (user.getAcctype().equals("Owner")) {
-                user.setUserID("O" + user.getUserID());
+            } else if (user.getUsertype().equals("Owner")) {
+                user.setIDnumber("O" + user.getIDnumber());
                 user.writetoFile("src\\Ownerdb.txt", 2);
             } else {
-                user.setUserID("A" + user.getUserID());
+                user.setIDnumber("A" + user.getIDnumber());
                 user.writetoFile("src\\Admindb.txt", 2);
             }
         }

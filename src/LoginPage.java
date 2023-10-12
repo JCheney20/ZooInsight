@@ -50,6 +50,13 @@ public class LoginPage extends BorderPane {
             new RegistrationPage();
         }));
 
+        logInbtn.setOnAction((evt -> {
+            stage.setScene(home);
+            stage.setTitle("ZooInsight - HomePage");
+            stage.minWidthProperty().bind(home.heightProperty().multiply(2));
+            stage.minHeightProperty().bind(home.widthProperty().divide(2));
+        }));
+
         this.setTop(lTitle);
         this.setCenter(loginDetailsBox);
         this.setBottom(abtUsbtn);

@@ -38,81 +38,81 @@ public class User {
 
     // Setter Methods
 
-    public void setFname(String fname) {
-        this.firstname = fname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setSname(String sname) {
-        this.surname = sname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public void setMail(String mail) {
-        this.email = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setAcctype(String type) {
-        this.usertype = type;
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public void setcelnum(String celnum) {
-        this.cellnumber = celnum;
+    public void setCellnumber(String cellnumber) {
+        this.cellnumber = cellnumber;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.dob = birthdate;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setPassword(String pass) {
-        this.password = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUserID(String IDnum) {
-        this.IDnumber = IDnum;
+    public void setIDnumber(String iDnumber) {
+        IDnumber = iDnumber;
     }
 
     // Getter Methods
-    public String getfname() {
-        return this.firstname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getsname() {
-        return this.surname;
+    public String getSurname() {
+        return surname;
     }
 
-    public String getmail() {
-        return this.email;
+    public String getEmail() {
+        return email;
     }
 
-    public String getAcctype() {
-        return this.usertype;
+    public String getUsertype() {
+        return usertype;
     }
 
     public String getGender() {
-        return this.gender;
+        return gender;
     }
 
-    public String getcelnum() {
-        return this.cellnumber;
+    public String getCellnumber() {
+        return cellnumber;
     }
 
-    public String getBirthdate() {
-        return this.dob;
+    public String getDob() {
+        return dob;
     }
 
-    public String getUserID() {
-        return this.IDnumber;
+    public String getIDnumber() {
+        return IDnumber;
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public String getPassword() {

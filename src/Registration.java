@@ -27,25 +27,29 @@ public class Registration extends BorderPane {
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];
-    Main fn = new Main();
+    FileManager fn = new FileManager();
+
+    private Label newLabel(String text, double FontSize) {
+        Label label = new Label(text);
+        label.setFont(new Font(FontSize));
+        return label;
+    }
+
+    private Label newLabel(String text) {
+        Label label = new Label(text);
+        label.setFont(new Font(12.0));
+        return label;
+    }
 
     public Registration(Stage stage, Scene home) {
-        Label lTitle = new Label("Registration");
-        Label lfname = new Label("Firstname:");
-        Label lsname = new Label("Surname:");
-        Label lemail = new Label("Email Address:");
-        Label lcelnum = new Label("Cell Number:");
-        Label lgender = new Label("Gender:");
-        Label lacctype = new Label("Account Type:");
-        Label ldob = new Label("Date of Birth:");
-        lTitle.setFont(new Font(40.0));
-        lfname.setFont(new Font(12.0));
-        lsname.setFont(new Font(12.0));
-        lemail.setFont(new Font(12.0));
-        lcelnum.setFont(new Font(12.0));
-        lgender.setFont(new Font(12.0));
-        lacctype.setFont(new Font(12.0));
-        ldob.setFont(new Font(12.0));
+        Label lTitle = newLabel("Registration", 40.0);
+        Label lfname = newLabel("Firstname:");
+        Label lsname = newLabel("Surname:");
+        Label lemail = newLabel("Email Address:");
+        Label lcelnum = newLabel("Cell Number:");
+        Label lgender = newLabel("Gender:");
+        Label lacctype = newLabel("Account Type:");
+        Label ldob = newLabel("Date of Birth:");
         TextField tfieldFname = new TextField("");
         TextField tfieldSname = new TextField("");
         TextField tfieldEmail = new TextField("");
@@ -74,8 +78,8 @@ public class Registration extends BorderPane {
         Button clearbtn = new Button("Clear");
         Button submitbtn = new Button("Submit");
         Button quitbtn = new Button("Exit");
-        Button homebtn = new Button("Home page");
-        HBox regBar = new HBox(10.0, clearbtn, submitbtn, quitbtn, homebtn);
+        Button backbtn = new Button("Back");
+        HBox regBar = new HBox(10.0, clearbtn, submitbtn, quitbtn, backbtn);
 
         clearbtn.setOnAction((evt) -> {
             tfieldFname.clear();
@@ -107,10 +111,9 @@ public class Registration extends BorderPane {
             userdetails = new String[] { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
 
             fn.registerNewUser(userdetails);
-
         });
 
-        homebtn.setOnAction((evt) -> {
+        backbtn.setOnAction((evt) -> {
             stage.setScene(home);
             stage.setTitle("ZooInsight - HomePage");
         });

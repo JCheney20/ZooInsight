@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Main {
+public class FileManager {
     public static void clearFile(String filename) {
         try {
             FileWriter fw = new FileWriter(filename, false);
@@ -62,7 +62,6 @@ public class Main {
     }
 
     public void registerNewUser(String[] userinput) {
-
         User user = new User(userinput);
         user.writetoFile("src\\Userdb.txt", 1);
         reassign();

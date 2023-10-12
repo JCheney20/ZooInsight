@@ -3,7 +3,7 @@ package src;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-public class newLabel extends Label {
+public class utils_newLabel extends Label {
 
     public Label createNewLabel(String text, double FontSize) {
         Label label = new Label(text);

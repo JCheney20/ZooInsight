@@ -19,18 +19,18 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class HomePage extends BorderPane {
+public class Page_Home extends BorderPane {
 
-    private void getdata(TableView<User> table) {
-        ArrayList<User> records = new ArrayList<User>();
+    private void getdata(TableView<obj_User> table) {
+        ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
         try {
             // 1.1
-            in = new Scanner(new File("src\\Userdb.txt"));
+            in = new Scanner(new File("src\\db_User.txt"));
             do {
                 attributes = in.nextLine().split(",");
-                records.add(new User(attributes));
+                records.add(new obj_User(attributes));
             } while (in.hasNextLine());
             Arrays.fill(attributes, null);
         } catch (IOException e) {
@@ -38,22 +38,22 @@ public class HomePage extends BorderPane {
             System.out.println("Unable to update");
             return;
         }
-        for (User user : records) {
+        for (obj_User user : records) {
             table.getItems().add(user);
         }
         in.close();
     }
 
-    private TableColumn<User, String> creatTableColumn(String ColumName, String propertyName) {
-        TableColumn<User, String> Column = new TableColumn<User, String>(ColumName);
-        Column.setCellValueFactory(new PropertyValueFactory<User, String>(propertyName));
+    private TableColumn<obj_User, String> creatTableColumn(String ColumName, String propertyName) {
+        TableColumn<obj_User, String> Column = new TableColumn<>(ColumName);
+        Column.setCellValueFactory(new PropertyValueFactory<>(propertyName));
         return Column;
     }
 
     // firstname, surname, email, usertype, gender, cellnumber, dob, username,
     // password, IDnumber
-    private TableView<User> createTable() {
-        TableView<User> table = new TableView<User>();
+    private TableView<obj_User> createTable() {
+        TableView<obj_User> table = new TableView<obj_User>();
         table.getColumns().add(creatTableColumn("Firstname", "firstname"));
         table.getColumns().add(creatTableColumn("Surname", "surname"));
         table.getColumns().add(creatTableColumn("Email Address", "email"));
@@ -67,10 +67,10 @@ public class HomePage extends BorderPane {
         return table;
     }
 
-    public HomePage(Stage stage, String User, String Account) {
-        newLabel lbl = new newLabel();
+    public Page_Home(Stage stage, String User, String Account) {
+        utils_newLabel lbl = new utils_newLabel();
         Label lTitle = lbl.createNewLabel("Welcome, " + User + "!", 40.0);
-        TableView<User> table = createTable();
+        TableView<obj_User> table = createTable();
 
         this.setTop(lTitle);
         this.setCenter(table);

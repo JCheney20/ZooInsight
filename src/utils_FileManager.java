@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class FileManager {
+public class utils_FileManager {
 
     public static void clearFile(String filename) {
         try {
@@ -25,7 +25,7 @@ public class FileManager {
     }
 
     public void reassign() {
-        ArrayList<User> records = new ArrayList<User>();
+        ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
         int count = 0;
@@ -34,7 +34,7 @@ public class FileManager {
             in = new Scanner(new File("src\\Userdb.txt"));
             do {
                 attributes = in.nextLine().split(",");
-                records.add(new User(attributes));
+                records.add(new obj_User(attributes));
                 records.get(count).setIDnumber(String.valueOf(count + 1));
                 count++;
             } while (in.hasNextLine());
@@ -47,7 +47,7 @@ public class FileManager {
         clearFile("src\\Caretakerdb.txt");
         clearFile("src\\Ownerdb.txt");
         clearFile("src\\Admindb.txt");
-        for (User user : records) {
+        for (obj_User user : records) {
             if (user.getUsertype().equals("Caretaker")) {
                 user.setIDnumber("C" + user.getIDnumber());
                 user.writetoFile("src\\Caretakerdb.txt", 2);
@@ -63,7 +63,7 @@ public class FileManager {
     }
 
     public void registerNewUser(String[] userinput) {
-        User user = new User(userinput);
+        obj_User user = new obj_User(userinput);
         user.writetoFile("src\\Userdb.txt", 1);
         reassign();
         JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);

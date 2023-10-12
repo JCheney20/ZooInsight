@@ -22,14 +22,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class RegistrationPage extends Stage {
-    newLabel lbl = new newLabel();
+public class Page_Registration extends Stage {
+    utils_newLabel lbl = new utils_newLabel();
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];
-    FileManager fn = new FileManager();
+    utils_FileManager fn = new utils_FileManager();
 
-    public RegistrationPage() {
+    public Page_Registration() {
         Label lTitle = lbl.createNewLabel("Registration", 40.0);
         Label lfname = lbl.createNewLabel("Firstname:");
         Label lsname = lbl.createNewLabel("Surname:");

@@ -5,11 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class User {
+public class obj_User {
     private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, IDnumber;
     private long RadNum = Math.round(Math.random() * 10000);
 
-    public User(String fname, String sname, String mail, String acctype, String gender, String celnum,
+    public obj_User(String fname, String sname, String mail, String acctype, String gender, String celnum,
             String birthdate) {
         this.IDnumber = String.valueOf(RadNum);
         this.firstname = fname;
@@ -23,7 +23,7 @@ public class User {
         this.password = createPass();
     }
 
-    public User(String[] user) {
+    public obj_User(String[] user) {
         this.IDnumber = String.valueOf(RadNum);
         this.firstname = user[0];
         this.surname = user[1];
@@ -36,7 +36,7 @@ public class User {
         this.password = createPass();
     }
 
-    public User(String[] user, int i) {
+    public obj_User(String[] user, int i) {
         this.IDnumber = user[0];
         this.firstname = user[1];
         this.surname = user[2];

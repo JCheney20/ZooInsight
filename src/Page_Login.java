@@ -24,8 +24,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LoginPage extends BorderPane {
-    newLabel lbl = new newLabel();
+public class Page_Login extends BorderPane {
+    utils_newLabel lbl = new utils_newLabel();
     private String currentUser, currentacctype;
 
     public String getCurrentUser() {
@@ -45,17 +45,17 @@ public class LoginPage extends BorderPane {
     }
 
     private boolean checkfile(String username, String password, String filename) {
-        ArrayList<User> records = new ArrayList<User>();
+        ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
         boolean found = false;
         int count = 0;
         try {
-            in = new Scanner(new File("src\\" + filename + "db.txt"));
+            in = new Scanner(new File("src\\db_" + filename + ".txt"));
             do {
                 attributes = in.nextLine().split(",");
-                records.add(new User(attributes, 1));
-                User user = records.get(count);
+                records.add(new obj_User(attributes, 1));
+                obj_User user = records.get(count);
                 if (user.getUsername().equals(username)
                         && user.getPassword().equals(password)) {
                     found = true;
@@ -87,7 +87,7 @@ public class LoginPage extends BorderPane {
 
     }
 
-    public LoginPage(Stage stage) {
+    public Page_Login(Stage stage) {
         Label lTitle = lbl.createNewLabel("Welcome to ZooInsight", 40.0);
         Label lUsername = lbl.createNewLabel("Username:");
         Label lPassword = lbl.createNewLabel("Password:");
@@ -104,14 +104,14 @@ public class LoginPage extends BorderPane {
         VBox loginDetailsBox = new VBox(15.0, usernameBox, passwordBox, logInbtn, signupBox);
 
         signUpbtn.setOnAction((evt -> {
-            new RegistrationPage();
+            new Page_Registration();
         }));
 
         logInbtn.setOnAction((evt -> {
             String username = usernameTextField.getText();
             String password = passwordextField.getText();
             if (login(username, password)) {
-                HomePage home = new HomePage(stage, getCurrentUser(), getCurrentacctype());
+                Page_Home home = new Page_Home(stage, getCurrentUser(), getCurrentacctype());
                 Scene homePage = new Scene(home, 600, 600);
                 stage.setScene(homePage);
                 stage.setTitle("ZooInsight - HomePage");

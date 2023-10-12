@@ -7,12 +7,12 @@ import javafx.scene.Scene;
 public class App extends Application { // ! Please ensure program is configured for access to javafx lib
 
     public void start(Stage stage) {
-        Homepage home = new Homepage(stage);
-        Scene homePage = new Scene(home, 500, 500);
-        Registration registrationPg = new Registration(stage, homePage);
-        Scene registrationPage = new Scene(registrationPg, 500.0, 400.0);
-        stage.setScene(registrationPage);
-        stage.setTitle("ZooInsight - Registration");
+        LoginPage login = new LoginPage(stage, null);
+        Scene loginPage = new Scene(login, 500, 300);
+        stage.setScene(loginPage);
+        stage.setTitle("ZooInsight - Login");
+        stage.minWidthProperty().bind(loginPage.heightProperty().multiply(2));
+        stage.minHeightProperty().bind(loginPage.widthProperty().divide(2));
         stage.show();
     }
 

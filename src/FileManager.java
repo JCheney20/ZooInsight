@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class FileManager {
+
     public static void clearFile(String filename) {
         try {
             FileWriter fw = new FileWriter(filename, false);

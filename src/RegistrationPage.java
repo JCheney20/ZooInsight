@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import javafx.application.Platform;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -13,17 +11,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class Registration extends BorderPane {
+public class RegistrationPage extends Stage {
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];
@@ -41,7 +41,7 @@ public class Registration extends BorderPane {
         return label;
     }
 
-    public Registration(Stage stage, Scene home) {
+    public RegistrationPage() {
         Label lTitle = newLabel("Registration", 40.0);
         Label lfname = newLabel("Firstname:");
         Label lsname = newLabel("Surname:");
@@ -77,9 +77,8 @@ public class Registration extends BorderPane {
 
         Button clearbtn = new Button("Clear");
         Button submitbtn = new Button("Submit");
-        Button quitbtn = new Button("Exit");
         Button backbtn = new Button("Back");
-        HBox regBar = new HBox(10.0, clearbtn, submitbtn, quitbtn, backbtn);
+        HBox regBar = new HBox(10.0, clearbtn, submitbtn, backbtn);
 
         clearbtn.setOnAction((evt) -> {
             tfieldFname.clear();
@@ -89,10 +88,6 @@ public class Registration extends BorderPane {
             malebtn.setSelected(true);
             caretkrbtn.setSelected(true);
             dpick.setValue(LocalDate.now());
-        });
-
-        quitbtn.setOnAction((evt) -> {
-            Platform.exit();
         });
 
         submitbtn.setOnAction((evt) -> {
@@ -114,8 +109,7 @@ public class Registration extends BorderPane {
         });
 
         backbtn.setOnAction((evt) -> {
-            stage.setScene(home);
-            stage.setTitle("ZooInsight - HomePage");
+            this.hide();
         });
 
         VBox gendergrpBox = new VBox(10.0, malebtn, femalebtn, otherbtn);
@@ -130,11 +124,20 @@ public class Registration extends BorderPane {
         VBox rightBox = new VBox(15.0, dateBox, acctypeBox);
         HBox infoBox = new HBox(20.0, leftBox, rightBox);
 
-        this.setTop(lTitle);
-        this.setCenter(infoBox);
-        this.setBottom(regBar);
-        this.setBackground(new Background(new BackgroundFill[] {
-                new BackgroundFill(Color.rgb(115, 147, 179), CornerRadii.EMPTY, Insets.EMPTY) }));
-
+        BorderPane screen = new BorderPane();
+        screen.setTop(lTitle);
+        screen.setCenter(infoBox);
+        screen.setBottom(regBar);
+        Image img = new Image("resources\\background.png");
+        BackgroundImage bImage = new BackgroundImage(img,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(1.0, 1.0, true, true, false, false));
+        screen.setBackground(new Background(bImage));
+        this.setScene(new Scene(screen));
+        this.minWidthProperty().bind(screen.heightProperty().multiply(2));
+        this.minHeightProperty().bind(screen.widthProperty().divide(2));
+        this.show();
     }
 }

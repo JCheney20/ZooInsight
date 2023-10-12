@@ -88,7 +88,9 @@ public class Page_Login extends BorderPane {
     }
 
     public Page_Login(Stage stage) {
-        Label lTitle = lbl.createNewLabel("Welcome to ZooInsight", 40.0);
+        Label lTitle = lbl.createNewLabel("Welcome\t to\tZooInsight");
+        lTitle.setId("Title");
+        HBox pageTitle = new HBox(10.0, lTitle);
         Label lUsername = lbl.createNewLabel("Username:");
         Label lPassword = lbl.createNewLabel("Password:");
         Label lsignUp = lbl.createNewLabel("Not Signed Up Yet? Click Here");
@@ -102,7 +104,7 @@ public class Page_Login extends BorderPane {
         HBox passwordBox = new HBox(10.0, lPassword, passwordextField);
         HBox signupBox = new HBox(10.0, lsignUp, signUpbtn);
         VBox loginDetailsBox = new VBox(15.0, usernameBox, passwordBox, logInbtn, signupBox);
-
+        HBox AboutUs = new HBox(abtUsbtn);
         signUpbtn.setOnAction((evt -> {
             new Page_Registration();
         }));
@@ -113,6 +115,7 @@ public class Page_Login extends BorderPane {
             if (login(username, password)) {
                 Page_Home home = new Page_Home(stage, getCurrentUser(), getCurrentacctype());
                 Scene homePage = new Scene(home, 600, 600);
+                homePage.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
                 stage.setScene(homePage);
                 stage.setTitle("ZooInsight - HomePage");
                 stage.minWidthProperty().bind(home.heightProperty().multiply(2));
@@ -125,13 +128,16 @@ public class Page_Login extends BorderPane {
 
         }));
 
-        this.setTop(lTitle);
+        this.setTop(pageTitle);
         this.setCenter(loginDetailsBox);
-        this.setBottom(abtUsbtn);
+        this.setBottom(AboutUs);
         signupBox.setSpacing(5);
-        abtUsbtn.setAlignment(Pos.BASELINE_RIGHT);
-        loginDetailsBox.setAlignment(Pos.TOP_CENTER);
-        lTitle.setAlignment(Pos.TOP_CENTER);
+        AboutUs.setAlignment(Pos.BASELINE_RIGHT);
+        usernameBox.setAlignment(Pos.CENTER);
+        passwordBox.setAlignment(Pos.CENTER);
+        loginDetailsBox.setAlignment(Pos.CENTER);
+        signupBox.setAlignment(Pos.CENTER);
+        pageTitle.setAlignment(Pos.TOP_CENTER);
         Image img = new Image("resources\\loginPg.png");
         BackgroundImage bImage = new BackgroundImage(img,
                 BackgroundRepeat.REPEAT,

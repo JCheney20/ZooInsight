@@ -8,7 +8,8 @@ public class App extends Application { // ! Please ensure program is configured 
 
     public void start(Stage stage) {
         Page_Login login = new Page_Login(stage);
-        Scene loginPage = new Scene(login, 500, 300);
+        Scene loginPage = new Scene(login, 800, 300);
+        loginPage.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
         stage.setScene(loginPage);
         stage.setTitle("ZooInsight - Login");
         stage.minWidthProperty().bind(loginPage.heightProperty().multiply(2));

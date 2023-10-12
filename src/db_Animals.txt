@@ -1,0 +1,9 @@
+Leo,8,Male,Mammal,Felidae,Panthera leo,Meat,Confident,
+Ella,25,Female,Mammal,Elephantidae,Loxodonta africana,Grass,Calm
+Danny,15,Female,Mammal,Delphinidae,Tursiops truncatus,Fish,Playful
+Eagle,12,Male,Bird,Accipitridae,Aquila chrysaetos,Meat,Proud
+Tiny,80,Male,Reptile,Testudinidae,Chelonia mydas,Algae,Relaxed
+Kenny,6,Male,Mammal,Macropodidae,Macropus giganteus,Grass,Energetic
+Penny,10,Female,Bird,Spheniscidae,Aptenodytes forsteri,Fish,Curious
+Charlie,6,Female,Mammal,Felidae,Acinonyx jubatus,Meat,Alert
+Gus,20,Male,Mammal,Hominidae,Gorilla gorilla,Leaves,Calm

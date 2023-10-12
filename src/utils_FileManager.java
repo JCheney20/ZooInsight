@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class utils_FileManager {
 
-    public static void clearFile(String filename) {
+    private static void clearFile(String filename) {
         try {
             FileWriter fw = new FileWriter(filename, false);
             PrintWriter pw = new PrintWriter(fw, false);
@@ -24,14 +24,14 @@ public class utils_FileManager {
         }
     }
 
-    public void reassign() {
+    private void reassign() {
         ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
         int count = 0;
         try {
             // 1.1
-            in = new Scanner(new File("src\\Userdb.txt"));
+            in = new Scanner(new File("src\\db_User.txt"));
             do {
                 attributes = in.nextLine().split(",");
                 records.add(new obj_User(attributes));
@@ -44,19 +44,19 @@ public class utils_FileManager {
             System.out.println("Unable to update");
             return;
         }
-        clearFile("src\\Caretakerdb.txt");
-        clearFile("src\\Ownerdb.txt");
-        clearFile("src\\Admindb.txt");
+        clearFile("src\\db_Caretaker.txt");
+        clearFile("src\\db_Owner.txt");
+        clearFile("src\\db_Admin.txt");
         for (obj_User user : records) {
             if (user.getUsertype().equals("Caretaker")) {
                 user.setIDnumber("C" + user.getIDnumber());
-                user.writetoFile("src\\Caretakerdb.txt", 2);
+                user.writetoFile("src\\db_Caretaker.txt", 2);
             } else if (user.getUsertype().equals("Owner")) {
                 user.setIDnumber("O" + user.getIDnumber());
-                user.writetoFile("src\\Ownerdb.txt", 2);
+                user.writetoFile("src\\db_Owner.txt", 2);
             } else {
                 user.setIDnumber("A" + user.getIDnumber());
-                user.writetoFile("src\\Admindb.txt", 2);
+                user.writetoFile("src\\db_Admin.txt", 2);
             }
         }
         in.close();
@@ -64,7 +64,7 @@ public class utils_FileManager {
 
     public void registerNewUser(String[] userinput) {
         obj_User user = new obj_User(userinput);
-        user.writetoFile("src\\Userdb.txt", 1);
+        user.writetoFile("src\\db_User.txt", 1);
         reassign();
         JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null, "Username: " + user.getUsername() + "\nPassword: " + user.getPassword(),

@@ -1,3 +1,3 @@
-O3,Sam,Petter-Bowyer,test@pb.com,Owner,Other,0431945912,17/07/2001,SPetter-Bowyer,42Samyer
-O5,Patrick,SMH,42916732@myuwc.ac.za,Owner,Male,0794231689,11/09/2003,PSMH,0PatSMH
-O6,Test,Test,343@example.com,Owner,Other,08641696,11/10/2023,TTest,95Tesest
+O3,Sam,Petter-Bowyer,test@pb.com,Owner,Other,0431945912,17/07/2001,SPetter-Bowyer,90Samyer
+O5,Patrick,SMH,42916732@myuwc.ac.za,Owner,Male,0794231689,11/09/2003,PSMH,5PatSMH
+O6,Test,Test,343@example.com,Owner,Other,08641696,11/10/2023,TTest,test

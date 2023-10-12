@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -31,6 +32,8 @@ public class Page_Registration extends Stage {
 
     public Page_Registration() {
         Label lTitle = lbl.createNewLabel("Registration", 40.0);
+        lTitle.setId("Title");
+        HBox pageTitle = new HBox(10.0, lTitle);
         Label lfname = lbl.createNewLabel("Firstname:");
         Label lsname = lbl.createNewLabel("Surname:");
         Label lemail = lbl.createNewLabel("Email Address:");
@@ -94,6 +97,7 @@ public class Page_Registration extends Stage {
             userdetails = new String[] { firname, surname, email, acctoogleval, gendertoogleval, celnum, date };
 
             fn.registerNewUser(userdetails);
+            this.hide();
         });
 
         backbtn.setOnAction((evt) -> {
@@ -105,15 +109,17 @@ public class Page_Registration extends Stage {
         VBox labelBox = new VBox(25.0, lfname, lsname, lemail, lcelnum);
         VBox txtfieldBox = new VBox(15.0, tfieldFname, tfieldSname, tfieldEmail, tfieldCelnum);
         HBox textinputBox = new HBox(10.0, labelBox, txtfieldBox);
-        VBox leftBox = new VBox(15.0, textinputBox, genderBox);
+        VBox leftBox = new VBox(15.0, textinputBox);
         VBox dateBox = new VBox(10.0, ldob, dpick);
         VBox acctypegrpBox = new VBox(10.0, caretkrbtn, ownerbtn, adminbtn);
         VBox acctypeBox = new VBox(15.0, lacctype, acctypegrpBox);
-        VBox rightBox = new VBox(15.0, dateBox, acctypeBox);
-        HBox infoBox = new HBox(20.0, leftBox, rightBox);
+        VBox rightBox = new VBox(15.0, dateBox, genderBox);
+        HBox infoBox = new HBox(20.0, leftBox, rightBox, acctypeBox);
 
         BorderPane screen = new BorderPane();
-        screen.setTop(lTitle);
+        screen.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
+        screen.setTop(pageTitle);
+        pageTitle.setAlignment(Pos.TOP_CENTER);
         screen.setCenter(infoBox);
         screen.setBottom(regBar);
         Image img = new Image("resources\\background.png");
@@ -123,7 +129,7 @@ public class Page_Registration extends Stage {
                 BackgroundPosition.CENTER,
                 new BackgroundSize(1.0, 1.0, true, true, false, false));
         screen.setBackground(new Background(bImage));
-        this.setScene(new Scene(screen));
+        this.setScene(new Scene(screen, 300.0, 300.0));
         this.minWidthProperty().bind(screen.heightProperty().multiply(2));
         this.minHeightProperty().bind(screen.widthProperty().divide(2));
         this.show();

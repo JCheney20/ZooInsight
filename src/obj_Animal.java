@@ -1,0 +1,104 @@
+package src;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class obj_Animal {
+    private String name, age, a_class, family, species, gender, mood, favFood;
+
+    public obj_Animal(String[] animaldetails) {
+        this.name = animaldetails[0];
+        this.age = animaldetails[1];
+        this.gender = animaldetails[2];
+        this.a_class = animaldetails[3];
+        this.family = animaldetails[4];
+        this.species = animaldetails[5];
+        this.favFood = animaldetails[6];
+        this.mood = animaldetails[7];
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getA_class() {
+        return a_class;
+    }
+
+    public String getFamily() {
+        return family;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getFavFood() {
+        return favFood;
+    }
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setA_class(String a_class) {
+        this.a_class = a_class;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
+    public void setFavFood(String favFood) {
+        this.favFood = favFood;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    @Override
+    public String toString() {
+        return name + "," + age + "," + a_class + "," + family + "," + species + "," + gender + "," + mood + ","
+                + favFood;
+    }
+
+    public void writetoFile(String filename) {
+        try {
+            FileWriter fw = new FileWriter(filename, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+            out.println(this.toString());
+            out.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + String.valueOf(e));
+            return;
+        }
+    }
+}

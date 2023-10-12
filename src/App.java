@@ -7,9 +7,7 @@ import javafx.scene.Scene;
 public class App extends Application { // ! Please ensure program is configured for access to javafx lib
 
     public void start(Stage stage) {
-        HomePage home = new HomePage(stage);
-        Scene homePage = new Scene(home, 600, 600);
-        LoginPage login = new LoginPage(stage, homePage);
+        LoginPage login = new LoginPage(stage);
         Scene loginPage = new Scene(login, 500, 300);
         stage.setScene(loginPage);
         stage.setTitle("ZooInsight - Login");

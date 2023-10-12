@@ -36,6 +36,19 @@ public class User {
         this.password = createPass();
     }
 
+    public User(String[] user, int i) {
+        this.IDnumber = user[0];
+        this.firstname = user[1];
+        this.surname = user[2];
+        this.email = user[3];
+        this.usertype = user[4];
+        this.gender = user[5];
+        this.cellnumber = user[6];
+        this.dob = user[7];
+        this.username = user[8];
+        this.password = user[9];
+    }
+
     // Setter Methods
 
     public void setFirstname(String firstname) {

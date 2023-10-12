@@ -20,36 +20,24 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class RegistrationPage extends Stage {
+    newLabel lbl = new newLabel();
     LocalDate dateoBirth;
     String firname, surname, email, celnum, date;
     String[] userdetails = new String[7];
     FileManager fn = new FileManager();
 
-    private Label newLabel(String text, double FontSize) {
-        Label label = new Label(text);
-        label.setFont(new Font(FontSize));
-        return label;
-    }
-
-    private Label newLabel(String text) {
-        Label label = new Label(text);
-        label.setFont(new Font(12.0));
-        return label;
-    }
-
     public RegistrationPage() {
-        Label lTitle = newLabel("Registration", 40.0);
-        Label lfname = newLabel("Firstname:");
-        Label lsname = newLabel("Surname:");
-        Label lemail = newLabel("Email Address:");
-        Label lcelnum = newLabel("Cell Number:");
-        Label lgender = newLabel("Gender:");
-        Label lacctype = newLabel("Account Type:");
-        Label ldob = newLabel("Date of Birth:");
+        Label lTitle = lbl.createNewLabel("Registration", 40.0);
+        Label lfname = lbl.createNewLabel("Firstname:");
+        Label lsname = lbl.createNewLabel("Surname:");
+        Label lemail = lbl.createNewLabel("Email Address:");
+        Label lcelnum = lbl.createNewLabel("Cell Number:");
+        Label lgender = lbl.createNewLabel("Gender:");
+        Label lacctype = lbl.createNewLabel("Account Type:");
+        Label ldob = lbl.createNewLabel("Date of Birth:");
         TextField tfieldFname = new TextField("");
         TextField tfieldSname = new TextField("");
         TextField tfieldEmail = new TextField("");

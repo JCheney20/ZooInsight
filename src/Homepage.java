@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +20,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class HomePage extends BorderPane {
-    private void getdata(TableView table) {
+
+    private void getdata(TableView<User> table) {
         ArrayList<User> records = new ArrayList<User>();
         String[] attributes = new String[10];
         Scanner in;
@@ -43,21 +44,35 @@ public class HomePage extends BorderPane {
         in.close();
     }
 
-    public HomePage(Stage stage) {
+    private TableColumn<User, String> creatTableColumn(String ColumName, String propertyName) {
+        TableColumn<User, String> Column = new TableColumn<User, String>(ColumName);
+        Column.setCellValueFactory(new PropertyValueFactory<User, String>(propertyName));
+        return Column;
+    }
 
+    // firstname, surname, email, usertype, gender, cellnumber, dob, username,
+    // password, IDnumber
+    private TableView<User> createTable() {
         TableView<User> table = new TableView<User>();
-        TableColumn fNamTableColumn = new TableColumn<User, String>("Firstname");
-        fNamTableColumn.setCellValueFactory(new PropertyValueFactory<User, String>("firstname"));
-        TableColumn surNamTableColumn = new TableColumn<User, String>("Surname");
-        surNamTableColumn.setCellValueFactory(new PropertyValueFactory<User, String>("surname"));
-        TableColumn accTypeTableColumn = new TableColumn<User, String>("Account Type");
-        accTypeTableColumn.setCellValueFactory(new PropertyValueFactory<User, String>("usertype"));
-        table.getColumns().add(fNamTableColumn);
-        table.getColumns().add(surNamTableColumn);
-        table.getColumns().add(accTypeTableColumn);
+        table.getColumns().add(creatTableColumn("Firstname", "firstname"));
+        table.getColumns().add(creatTableColumn("Surname", "surname"));
+        table.getColumns().add(creatTableColumn("Email Address", "email"));
+        table.getColumns().add(creatTableColumn("Account Type", "usertype"));
+        table.getColumns().add(creatTableColumn("Gender", "gender"));
+        table.getColumns().add(creatTableColumn("Cell Number", "cellnumber"));
+        table.getColumns().add(creatTableColumn("Date of Birth", "dob"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
-        table.setMaxSize(400.0, 400.0);
+        table.setMaxSize(800.0, 500.0);
         getdata(table);
+        return table;
+    }
+
+    public HomePage(Stage stage, String User, String Account) {
+        newLabel lbl = new newLabel();
+        Label lTitle = lbl.createNewLabel("Welcome, " + User + "!", 40.0);
+        TableView<User> table = createTable();
+
+        this.setTop(lTitle);
         this.setCenter(table);
         Image img = new Image("resources\\loginPg.png");
         BackgroundImage bImage = new BackgroundImage(img,

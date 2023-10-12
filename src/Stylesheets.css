@@ -3,6 +3,8 @@
     -fx-font-size: 55;
     -fx-text-alginment: center;
     -fx-alginment: center;
+    font-family: "PALMSPRINGS PERSONAL USE";
+    font-size: 55;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Palmsprings.ttf')
     
 }
@@ -13,6 +15,9 @@
     -fx-font-weight: 400;
     -fx-text-alginment: center;
     -fx-alginment: center;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 25;
+    font-weight: 400;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
 
@@ -20,15 +25,20 @@
     -fx-font-family: "Oversouth Regular DEMO";
     -fx-font-size: 12;
     -fx-font-weight: 800;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 12;
+    font-weight: 800;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
 
 .button .text {
     -fx-font-family: "Oversouth Regular DEMO";
+    font-family: "Oversouth Regular DEMO";
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
 
 .radio-button .text {
     -fx-font-family: "Oversouth Regular DEMO";
+    font-family: "Oversouth Regular DEMO";
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }

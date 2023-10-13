@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class obj_Animal {
+public class obj_Animal implements utils_ObjectGen {
     private String name, age, a_class, family, species, gender, mood, favFood;
 
     public obj_Animal(String[] animaldetails) {
@@ -95,7 +95,7 @@ public class obj_Animal {
                 + mood;
     }
 
-    public void writetoFile(String filename) {
+    public void writetoFile(String filename, int i) {
         try {
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -107,4 +107,5 @@ public class obj_Animal {
             return;
         }
     }
+
 }

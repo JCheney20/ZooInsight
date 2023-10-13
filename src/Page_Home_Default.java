@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 public class Page_Home_Default extends BorderPane {
     utils_newTabel newtable = new utils_newTabel();
     utils_FileManager fm = new utils_FileManager();
-    TableView<obj_User> table;
     TableView<obj_Animal> table2;
 
     public Page_Home_Default(Stage stage, String User, Scene prescene) {
@@ -25,19 +24,24 @@ public class Page_Home_Default extends BorderPane {
         table2 = newtable.createAnimalTable();
         Button createBtn = new Button("Create");
         Button deleteBtn = new Button("Delete");
-        Button refreshBtn = new Button("Referesh");
+        Button saveBtn = new Button("Save to File");
         Button logoutBtn = new Button("Logout");
-        VBox buttonBar = new VBox(10.0, createBtn, deleteBtn, refreshBtn, logoutBtn);
+        VBox buttonBar = new VBox(10.0, createBtn, deleteBtn, saveBtn, logoutBtn);
         createBtn.setOnAction((evt -> {
             fm.registerNewAnimal();
-        }));
-        refreshBtn.setOnAction((evt -> {
             table2.getItems().clear();
             newtable.getAnimalData(table2);
+        }));
+        saveBtn.setOnAction((evt -> {
+            fm.updateFile(table2.getItems(), "Animals");
         }));
         logoutBtn.setOnAction((evt -> {
             stage.setScene(prescene);
             stage.setTitle("ZooInsight - Login");
+        }));
+        deleteBtn.setOnAction((evt -> {
+            newtable.deleteEntry(table2);
+            fm.updateFile(table2.getItems(), "Animals");
         }));
         this.setCenter(table2);
         this.setTop(Header);

@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.ObservableList;
+
 public class utils_FileManager {
 
     private static void clearFile(String filename) {
@@ -62,6 +64,15 @@ public class utils_FileManager {
         in.close();
     }
 
+    public <T extends utils_ObjectGen> void updateFile(ObservableList<T> userlist, String filename) {
+        clearFile("src\\db_" + filename + ".txt");
+        for (T user : userlist) {
+            user.writetoFile("src\\db_" + filename + ".txt", 1);
+        }
+        reassignUser();
+        JOptionPane.showMessageDialog(null, "File saved", "Saved", JOptionPane.INFORMATION_MESSAGE, null);
+    }
+
     public void registerNewUser(String[] userinput) {
         obj_User user = new obj_User(userinput);
         user.writetoFile("src\\db_User.txt", 1);
@@ -84,7 +95,7 @@ public class utils_FileManager {
         userinput[5] = JOptionPane.showInputDialog(null, "Please enter animal\'s Species:", "New Animal", 0);
         userinput[6] = JOptionPane.showInputDialog(null, "Please enter animal\'s Favourite Food:", "New Animal", 0);
         obj_Animal animal = new obj_Animal(userinput);
-        animal.writetoFile("src\\db_Animals.txt");
+        animal.writetoFile("src\\db_Animals.txt", 1);
         JOptionPane.showMessageDialog(null, animal.getName() + " has been successfully added to the database.",
                 "Success!", JOptionPane.PLAIN_MESSAGE);
 

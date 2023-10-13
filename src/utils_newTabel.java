@@ -72,13 +72,17 @@ public class utils_newTabel {
         Column.setCellFactory(TextFieldTableCell.forTableColumn());
         Column.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<obj_Animal, String>>() {
             @Override
-            public void handle(CellEditEvent<obj_Animal, String> arg0) {
-                obj_Animal animal = arg0.getRowValue();
-                animal.setMood(arg0.getNewValue());
-                throw new UnsupportedOperationException("Unimplemented method 'handle'");
+            public void handle(CellEditEvent<obj_Animal, String> evt) {
+                obj_Animal animal = evt.getRowValue();
+                animal.setMood(evt.getNewValue());
             }
         });
         return Column;
+    }
+
+    public <T, Q> void deleteEntry(TableView<T> table) {
+        T entity = table.getSelectionModel().getSelectedItem();
+        table.getItems().remove(entity);
     }
 
     public TableView<obj_User> createUserTable() {

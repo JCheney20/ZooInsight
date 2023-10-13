@@ -108,6 +108,8 @@ public class Page_Login extends BorderPane {
                         Page_Home_Admin home_Admin = new Page_Home_Admin(stage, getCurrentUser(), this.getScene());
                         Scene homePage_Admin = new Scene(home_Admin, 600, 600);
                         homePage_Admin.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
+                        usernameTextField.clear();
+                        passwordextField.clear();
                         stage.setScene(homePage_Admin);
                         stage.setTitle("ZooInsight - HomePage");
                         stage.minWidthProperty().bind(home_Admin.heightProperty().multiply(2));

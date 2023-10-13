@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class obj_User {
+public class obj_User implements utils_ObjectGen {
     private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, IDnumber;
     private long RadNum = Math.round(Math.random() * 10000);
 
@@ -152,6 +152,7 @@ public class obj_User {
                 + "," + dob + "," + username + "," + password;
     }
 
+    @Override
     public void writetoFile(String filename, int type) {
         try {
             FileWriter fw = new FileWriter(filename, true);
@@ -183,4 +184,6 @@ public class obj_User {
         username = intial + surname;
         return username;
     }
+
+
 }

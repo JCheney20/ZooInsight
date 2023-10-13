@@ -1,8 +1,79 @@
+.table-view{
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-base: #556b2f6e;
+    -fx-highlight-fill:#adff2f;
+    -fx-highlight-text-fill:#f0e68c;
+    font-family: "Oversouth Regular DEMO";
+
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+.text-field{
+    -fx-font-family: "Honey Jar Free Trial";
+    -fx-size:15;
+    -fx-base: #556b2f6e;
+    -fx-highlight-fill:#adff2f;
+    -fx-highlight-text-fill:#f0e68c;
+    font-family: "Honey Jar Free Trial";
+    size: 12;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/TfFancy.ttf')
+}
+.label{
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-font-size: 14;
+    -fx-font-weight: 800;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 12;
+    font-weight: 800;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+
+.button {
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-base: #556b2f;
+    font-family: "Oversouth Regular DEMO";
+
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+
+.button .text {
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-font-size: 16;
+    -fx-font-colour:#f0e68c;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 16;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+
+.radio-button {
+    -fx-font-family: "Oversouth Regular DEMO";
+    font-family: "Oversouth Regular DEMO";
+    -fx-base: #556b2f;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+.radio-button .text {
+    -fx-font-family: "Oversouth Regular DEMO";
+    font-family: "Oversouth Regular DEMO";
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+#Page_Login #lbl{
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-font-size: 18;
+    -fx-font-weight: 800;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 18;
+    font-weight: 800;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
+#Btnbar{
+    -fx-padding:5px;
+    padding: 5px;
+}
 #Title{
     -fx-font-family: "PALMSPRINGS PERSONAL USE";
-    -fx-font-size: 55;
+    -fx-font-size: 60;
     -fx-text-alginment: center;
     -fx-alginment: center;
+    -fx-label-padding: 35px,5px,5px,5px;
     font-family: "PALMSPRINGS PERSONAL USE";
     font-size: 55;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Palmsprings.ttf')
@@ -21,24 +92,5 @@
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
 
-.label{
-    -fx-font-family: "Oversouth Regular DEMO";
-    -fx-font-size: 12;
-    -fx-font-weight: 800;
-    font-family: "Oversouth Regular DEMO";
-    font-size: 12;
-    font-weight: 800;
-    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
-}
 
-.button .text {
-    -fx-font-family: "Oversouth Regular DEMO";
-    font-family: "Oversouth Regular DEMO";
-    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
-}
 
-.radio-button .text {
-    -fx-font-family: "Oversouth Regular DEMO";
-    font-family: "Oversouth Regular DEMO";
-    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
-}

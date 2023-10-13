@@ -10,19 +10,21 @@ public class utils_newLabel extends Label {
     public Label createNewLabel(String text, double FontSize) {
         Label label = new Label(text);
         label.setFont(new Font(FontSize));
+        label.setId("lbl");
         return label;
     }
 
     public Label createNewLabel(String text) {
         Label label = new Label(text);
         label.setFont(new Font(12.0));
+        label.setId("lbl");
         return label;
     }
 
     public HBox createNewTitle(String Title) {
         Label lTitle = createNewLabel(Title);
         lTitle.setId("Title");
-        HBox pageTitle = new HBox(40.0, lTitle);
+        HBox pageTitle = new HBox(30.0, lTitle);
         pageTitle.setAlignment(Pos.TOP_CENTER);
         return pageTitle;
     }

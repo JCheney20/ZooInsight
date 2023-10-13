@@ -22,7 +22,7 @@ public class Page_Home_Default extends BorderPane {
         Label lusername = lbl.createNewLabel("Welcome. " + User + "!");
         lusername.setId("User");
         HBox welcom = new HBox(30.0, lusername);
-        VBox Header = new VBox(40.0, lbl.createNewTitle("HomePage"), welcom);
+        VBox Header = new VBox(20.0, lbl.createNewTitle("HomePage"), welcom);
         table2 = newtable.createAnimalTable();
         Button createBtn = new Button("Create");
         Button deleteBtn = new Button("Delete");
@@ -50,6 +50,8 @@ public class Page_Home_Default extends BorderPane {
         this.setCenter(table2);
         this.setTop(Header);
         this.setRight(buttonBar);
+        buttonBar.setId("Btnbar");
+        buttonBar.setAlignment(Pos.CENTER);
         welcom.setAlignment(Pos.TOP_CENTER);
         utils_background bckgrnd = new utils_background();
         bckgrnd.setBgrd("resources\\background.png");

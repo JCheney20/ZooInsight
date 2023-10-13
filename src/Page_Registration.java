@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -60,6 +61,7 @@ public class Page_Registration extends Stage {
         Button submitbtn = new Button("Submit");
         Button backbtn = new Button("Back");
         HBox regBar = new HBox(10.0, clearbtn, submitbtn, backbtn);
+        regBar.setId("Btnbar");
 
         clearbtn.setOnAction((evt) -> {
             tfieldFname.clear();
@@ -110,11 +112,12 @@ public class Page_Registration extends Stage {
         screen.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
         screen.setTop(lbl.createNewTitle("Registration"));
         screen.setCenter(infoBox);
+        infoBox.setAlignment(Pos.CENTER);
         screen.setBottom(regBar);
         utils_background bckgrnd = new utils_background();
         bckgrnd.setBgrd("resources\\background.png");
         screen.setBackground(bckgrnd.getBgrd());
-        this.setScene(new Scene(screen, 300.0, 300.0));
+        this.setScene(new Scene(screen, 400.0, 400.0));
         this.minWidthProperty().bind(screen.heightProperty().multiply(2));
         this.minHeightProperty().bind(screen.widthProperty().divide(2));
         this.show();

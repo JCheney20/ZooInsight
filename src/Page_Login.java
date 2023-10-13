@@ -81,6 +81,7 @@ public class Page_Login extends BorderPane {
     }
 
     public Page_Login(Stage stage) {
+        this.setId("Page_Login");
         Label lUsername = lbl.createNewLabel("Username:");
         Label lPassword = lbl.createNewLabel("Password:");
         Label lsignUp = lbl.createNewLabel("Not Signed Up Yet? Click Here");
@@ -138,7 +139,7 @@ public class Page_Login extends BorderPane {
         signupBox.setSpacing(5);
         usernameBox.setAlignment(Pos.CENTER);
         passwordBox.setAlignment(Pos.CENTER);
-        loginDetailsBox.setAlignment(Pos.CENTER);
+        loginDetailsBox.setAlignment(Pos.TOP_CENTER);
         signupBox.setAlignment(Pos.CENTER);
         utils_background bckgrnd = new utils_background();
         bckgrnd.setBgrd("resources\\loginPg.png");

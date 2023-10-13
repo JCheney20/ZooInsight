@@ -20,7 +20,7 @@ public class Page_Home_Admin extends BorderPane {
         Label lusername = lbl.createNewLabel("Welcome. " + User + "!");
         lusername.setId("User");
         HBox welcom = new HBox(30.0, lusername);
-        VBox Header = new VBox(40.0, lbl.createNewTitle("HomePage"), welcom);
+        VBox Header = new VBox(20.0, lbl.createNewTitle("HomePage"), welcom);
         table = newtable.createUserTable();
         this.setCenter(table);
 
@@ -48,6 +48,8 @@ public class Page_Home_Admin extends BorderPane {
 
         this.setRight(buttonBar);
         this.setTop(Header);
+        buttonBar.setId("Btnbar");
+        buttonBar.setAlignment(Pos.CENTER);
         welcom.setAlignment(Pos.TOP_CENTER);
         utils_background bckgrnd = new utils_background();
         bckgrnd.setBgrd("resources\\background.png");

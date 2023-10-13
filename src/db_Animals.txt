@@ -7,3 +7,8 @@ Kenny,6,Male,Mammal,Macropodidae,Macropus giganteus,Grass,Energetic
 Penny,10,Female,Bird,Spheniscidae,Aptenodytes forsteri,Fish,Curious
 Charlie,6,Female,Mammal,Felidae,Acinonyx jubatus,Meat,Alert
 Gus,20,Male,Mammal,Hominidae,Gorilla gorilla,Leaves,Calm
+Jimmy,6,Male,Mammal,Cercopithecidae,infraorder Simiiformes,Fruit, 
+test,test,Male,test,test,test,test,null
+null,test,Male,test,test,test,test,null
+aa,aa,Male,aa,aa,aa,aa,null
+ya,ya,Male,ya,ya,ya,ya,null

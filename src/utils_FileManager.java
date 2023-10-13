@@ -24,7 +24,7 @@ public class utils_FileManager {
         }
     }
 
-    private void reassign() {
+    private void reassignUser() {
         ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
@@ -65,9 +65,28 @@ public class utils_FileManager {
     public void registerNewUser(String[] userinput) {
         obj_User user = new obj_User(userinput);
         user.writetoFile("src\\db_User.txt", 1);
-        reassign();
+        reassignUser();
         JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null, "Username: " + user.getUsername() + "\nPassword: " + user.getPassword(),
                 "User Details", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void registerNewAnimal() {
+        String[] userinput = new String[8];
+        String[] gender = { "Male", "Female", "Unknown" };
+        Arrays.fill(userinput, null);
+        userinput[0] = JOptionPane.showInputDialog(null, "Please enter animal\'s name:", "New Animal", 0);
+        userinput[1] = JOptionPane.showInputDialog(null, "Please enter animal\'s age:", "New Animal", 0);
+        userinput[2] = (String) JOptionPane.showInputDialog(null, "Please enter animal\'s gender:", "New Animal", 0,
+                null, gender, gender[0]); // ? Dropdown
+        userinput[3] = JOptionPane.showInputDialog(null, "Please enter animal\'s Class:", "New Animal", 0);
+        userinput[4] = JOptionPane.showInputDialog(null, "Please enter animal\'s Family:", "New Animal", 0);
+        userinput[5] = JOptionPane.showInputDialog(null, "Please enter animal\'s Species:", "New Animal", 0);
+        userinput[6] = JOptionPane.showInputDialog(null, "Please enter animal\'s Favourite Food:", "New Animal", 0);
+        obj_Animal animal = new obj_Animal(userinput);
+        animal.writetoFile("src\\db_Animals.txt");
+        JOptionPane.showMessageDialog(null, animal.getName() + " has been successfully added to the database.",
+                "Success!", JOptionPane.PLAIN_MESSAGE);
+
     }
 }

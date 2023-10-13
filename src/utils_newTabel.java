@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class utils_newTabel {
-    private void getAnimalData(TableView<obj_Animal> table) {
+    public void getAnimalData(TableView<obj_Animal> table) {
         ArrayList<obj_Animal> records = new ArrayList<obj_Animal>();
         String[] attributes = new String[10];
         Scanner in;
@@ -34,7 +37,7 @@ public class utils_newTabel {
         in.close();
     }
 
-    private void getUserData(TableView<obj_User> table) {
+    public void getUserData(TableView<obj_User> table) {
         ArrayList<obj_User> records = new ArrayList<obj_User>();
         String[] attributes = new String[10];
         Scanner in;
@@ -63,6 +66,21 @@ public class utils_newTabel {
         return Column;
     }
 
+    private TableColumn<obj_Animal, String> creatmoodColumn(String ColumName, String propertyName) {
+        TableColumn<obj_Animal, String> Column = new TableColumn<>(ColumName);
+        Column.setCellValueFactory(new PropertyValueFactory<obj_Animal, String>(propertyName));
+        Column.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<obj_Animal, String>>() {
+            @Override
+            public void handle(CellEditEvent<obj_Animal, String> arg0) {
+                obj_Animal animal = arg0.getRowValue();
+                animal.setMood(arg0.getNewValue());
+                throw new UnsupportedOperationException("Unimplemented method 'handle'");
+            }
+        });
+        return Column;
+    }
+
     public TableView<obj_User> createUserTable() {
         TableView<obj_User> table = new TableView<obj_User>();
         table.getColumns().add(creatTableColumn("Firstname", "firstname"));
@@ -73,13 +91,14 @@ public class utils_newTabel {
         table.getColumns().add(creatTableColumn("Cell Number", "cellnumber"));
         table.getColumns().add(creatTableColumn("Date of Birth", "dob"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
-        table.setMaxSize(800.0, 500.0);
+        table.setMaxSize(800.0, 300.0);
         getUserData(table);
         return table;
     }
 
     public TableView<obj_Animal> createAnimalTable() {
         TableView<obj_Animal> table = new TableView<obj_Animal>();
+        table.setEditable(true);
         table.getColumns().add(creatTableColumn("Name", "name"));
         table.getColumns().add(creatTableColumn("Age", "age"));
         table.getColumns().add(creatTableColumn("Gender", "gender"));
@@ -87,9 +106,9 @@ public class utils_newTabel {
         table.getColumns().add(creatTableColumn("Family", "family"));
         table.getColumns().add(creatTableColumn("Species", "species"));
         table.getColumns().add(creatTableColumn("Favourite Food", "favFood"));
-        table.getColumns().add(creatTableColumn("Mood Today", "mood"));
+        table.getColumns().add(creatmoodColumn("Mood Today", "mood"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
-        table.setMaxSize(800.0, 500.0);
+        table.setMaxSize(800.0, 300.0);
         getAnimalData(table);
         return table;
     }

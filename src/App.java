@@ -6,9 +6,9 @@ import javafx.scene.Scene;
 
 public class App extends Application { // ! Please ensure program is configured for access to javafx lib
     /**
-     * TODO: Create & Add new Animals
      * TODO: Edit Animals mood w/ dropdown box
      * TODO: Delete User & Delete Animal
+     * TODO: Final GUI touch-ups
      * TODO: AboutUs Page
      * TODO: Record videos
      */

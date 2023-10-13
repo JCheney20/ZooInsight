@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -12,12 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,9 +24,6 @@ public class Page_Registration extends Stage {
     utils_FileManager fn = new utils_FileManager();
 
     public Page_Registration() {
-        Label lTitle = lbl.createNewLabel("Registration", 40.0);
-        lTitle.setId("Title");
-        HBox pageTitle = new HBox(10.0, lTitle);
         Label lfname = lbl.createNewLabel("Firstname:");
         Label lsname = lbl.createNewLabel("Surname:");
         Label lemail = lbl.createNewLabel("Email Address:");
@@ -118,17 +108,12 @@ public class Page_Registration extends Stage {
 
         BorderPane screen = new BorderPane();
         screen.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
-        screen.setTop(pageTitle);
-        pageTitle.setAlignment(Pos.TOP_CENTER);
+        screen.setTop(lbl.createNewTitle("Registration"));
         screen.setCenter(infoBox);
         screen.setBottom(regBar);
-        Image img = new Image("resources\\background.png");
-        BackgroundImage bImage = new BackgroundImage(img,
-                BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(1.0, 1.0, true, true, false, false));
-        screen.setBackground(new Background(bImage));
+        utils_background bckgrnd = new utils_background();
+        bckgrnd.setBgrd("resources\\background.png");
+        screen.setBackground(bckgrnd.getBgrd());
         this.setScene(new Scene(screen, 300.0, 300.0));
         this.minWidthProperty().bind(screen.heightProperty().multiply(2));
         this.minHeightProperty().bind(screen.widthProperty().divide(2));

@@ -13,12 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -84,13 +78,9 @@ public class Page_Login extends BorderPane {
         } else {
             return false;
         }
-
     }
 
     public Page_Login(Stage stage) {
-        Label lTitle = lbl.createNewLabel("Welcome\t to\tZooInsight");
-        lTitle.setId("Title");
-        HBox pageTitle = new HBox(10.0, lTitle);
         Label lUsername = lbl.createNewLabel("Username:");
         Label lPassword = lbl.createNewLabel("Password:");
         Label lsignUp = lbl.createNewLabel("Not Signed Up Yet? Click Here");
@@ -113,13 +103,28 @@ public class Page_Login extends BorderPane {
             String username = usernameTextField.getText();
             String password = passwordextField.getText();
             if (login(username, password)) {
-                Page_Home home = new Page_Home(stage, getCurrentUser(), getCurrentacctype());
-                Scene homePage = new Scene(home, 600, 600);
-                homePage.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
-                stage.setScene(homePage);
-                stage.setTitle("ZooInsight - HomePage");
-                stage.minWidthProperty().bind(home.heightProperty().multiply(2));
-                stage.minHeightProperty().bind(home.widthProperty().divide(2));
+                switch (getCurrentacctype()) {
+                    case "Admin":
+                        Page_Home_Admin home_Admin = new Page_Home_Admin(stage, getCurrentUser(), this.getScene());
+                        Scene homePage_Admin = new Scene(home_Admin, 600, 600);
+                        homePage_Admin.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
+                        stage.setScene(homePage_Admin);
+                        stage.setTitle("ZooInsight - HomePage");
+                        stage.minWidthProperty().bind(home_Admin.heightProperty().multiply(2));
+                        stage.minHeightProperty().bind(home_Admin.widthProperty().divide(2));
+                        break;
+                    default:
+                        Page_Home_Default home_Default = new Page_Home_Default(stage, getCurrentUser(),
+                                this.getScene());
+                        Scene homePage_Default = new Scene(home_Default, 600, 600);
+                        homePage_Default.getStylesheets()
+                                .add(getClass().getResource("Stylesheets.css").toExternalForm());
+                        stage.setScene(homePage_Default);
+                        stage.setTitle("ZooInsight - HomePage");
+                        stage.minWidthProperty().bind(home_Default.heightProperty().multiply(2));
+                        stage.minHeightProperty().bind(home_Default.widthProperty().divide(2));
+                        break;
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Sorry incorrect username or password");
                 usernameTextField.clear();
@@ -128,7 +133,7 @@ public class Page_Login extends BorderPane {
 
         }));
 
-        this.setTop(pageTitle);
+        this.setTop(lbl.createNewTitle("Welcome\t to\tZooInsight"));
         this.setCenter(loginDetailsBox);
         this.setBottom(AboutUs);
         signupBox.setSpacing(5);
@@ -137,13 +142,8 @@ public class Page_Login extends BorderPane {
         passwordBox.setAlignment(Pos.CENTER);
         loginDetailsBox.setAlignment(Pos.CENTER);
         signupBox.setAlignment(Pos.CENTER);
-        pageTitle.setAlignment(Pos.TOP_CENTER);
-        Image img = new Image("resources\\loginPg.png");
-        BackgroundImage bImage = new BackgroundImage(img,
-                BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.CENTER,
-                new BackgroundSize(1.0, 1.0, true, true, false, false));
-        this.setBackground(new Background(bImage));
+        utils_background bckgrnd = new utils_background();
+        bckgrnd.setBgrd("resources\\loginPg.png");
+        this.setBackground(bckgrnd.getBgrd());
     }
 }

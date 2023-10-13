@@ -16,7 +16,12 @@ public class obj_Animal {
         this.family = animaldetails[4];
         this.species = animaldetails[5];
         this.favFood = animaldetails[6];
-        this.mood = animaldetails[7];
+        if (animaldetails[7] == " ") {
+            this.mood = " ";
+        } else {
+            this.mood = animaldetails[7];
+        }
+
     }
 
     public String getName() {
@@ -85,8 +90,9 @@ public class obj_Animal {
 
     @Override
     public String toString() {
-        return name + "," + age + "," + a_class + "," + family + "," + species + "," + gender + "," + mood + ","
-                + favFood;
+        return name + "," + age + "," + gender + "," + a_class + "," + family + "," + species + "," + favFood
+                + ","
+                + mood;
     }
 
     public void writetoFile(String filename) {

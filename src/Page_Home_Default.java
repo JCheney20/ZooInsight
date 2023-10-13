@@ -13,10 +13,10 @@ import javafx.stage.Stage;
 public class Page_Home_Default extends BorderPane {
     utils_newTabel newtable = new utils_newTabel();
     utils_FileManager fm = new utils_FileManager();
+    utils_newLabel lbl = new utils_newLabel();
     TableView<obj_Animal> table2;
 
     public Page_Home_Default(Stage stage, String User, Scene prescene) {
-        utils_newLabel lbl = new utils_newLabel();
         Label lusername = lbl.createNewLabel("Welcome. " + User + "!");
         lusername.setId("User");
         HBox welcom = new HBox(30.0, lusername);

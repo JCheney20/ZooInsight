@@ -82,6 +82,27 @@ public class utils_FileManager {
                 "User Details", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public void registerNewUser() {
+        String[] userinput = new String[8];
+        String[] gender = { "Male", "Female", "Other" };
+        String[] usetype = { "Admin", "Caretaker", "Owner" };
+        Arrays.fill(userinput, null);
+        userinput[0] = JOptionPane.showInputDialog(null, "Please enter new user\'s firstname:", "New User", 0);
+        userinput[1] = JOptionPane.showInputDialog(null, "Please enter new user\'s surname:", "New User", 0);
+        userinput[2] = JOptionPane.showInputDialog(null, "Please enter new user\'s email:", "New User", 0);
+        userinput[3] = (String) JOptionPane.showInputDialog(null, "Please enter new user\'s gender:", "New User", 0,
+                null, usetype, usetype[0]);
+        userinput[4] = (String) JOptionPane.showInputDialog(null, "Please enter new user\'s gender:", "New User", 0,
+                null, gender, gender[0]);
+        userinput[5] = JOptionPane.showInputDialog(null, "Please enter new user\'s cellnumber:", "New User", 0);
+        userinput[6] = JOptionPane.showInputDialog(null, "Please enter new user\'s Date of Birth:", "New User", 0);
+        obj_User user = new obj_User(userinput);
+        user.writetoFile("src\\db_User.txt", 1);
+        reassignUser();
+        JOptionPane.showMessageDialog(null, user.getFirstname() + " has been successfully added to the database.",
+                "Success!", JOptionPane.PLAIN_MESSAGE);
+    }
+
     public void registerNewAnimal() {
         String[] userinput = new String[8];
         String[] gender = { "Male", "Female", "Unknown" };

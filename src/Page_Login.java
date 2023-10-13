@@ -88,13 +88,11 @@ public class Page_Login extends BorderPane {
         TextField passwordextField = new TextField("");
         Button logInbtn = new Button("Login");
         Button signUpbtn = new Button("Sign Up");
-        Button abtUsbtn = new Button("About Us");
 
         HBox usernameBox = new HBox(10.0, lUsername, usernameTextField);
         HBox passwordBox = new HBox(10.0, lPassword, passwordextField);
         HBox signupBox = new HBox(10.0, lsignUp, signUpbtn);
         VBox loginDetailsBox = new VBox(15.0, usernameBox, passwordBox, logInbtn, signupBox);
-        HBox AboutUs = new HBox(abtUsbtn);
         signUpbtn.setOnAction((evt -> {
             new Page_Registration();
         }));
@@ -137,9 +135,7 @@ public class Page_Login extends BorderPane {
 
         this.setTop(lbl.createNewTitle("Welcome\t to\tZooInsight"));
         this.setCenter(loginDetailsBox);
-        this.setBottom(AboutUs);
         signupBox.setSpacing(5);
-        AboutUs.setAlignment(Pos.BASELINE_RIGHT);
         usernameBox.setAlignment(Pos.CENTER);
         passwordBox.setAlignment(Pos.CENTER);
         loginDetailsBox.setAlignment(Pos.CENTER);

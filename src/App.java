@@ -5,9 +5,6 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 public class App extends Application { // ! Please ensure program is configured for access to javafx lib
-    /**
-     * TODO: Record videos
-     */
     public void start(Stage stage) {
         Page_Login login = new Page_Login(stage);
         Scene loginPage = new Scene(login, 900, 250);

@@ -19,6 +19,7 @@ public class Page_Home_Default extends BorderPane {
     TableView<obj_Animal> table2;
 
     public Page_Home_Default(Stage stage, String User, Scene prescene) {
+        this.setId("HomePage");
         Label lusername = lbl.createNewLabel("Welcome. " + User + "!");
         lusername.setId("User");
         HBox welcom = new HBox(30.0, lusername);
@@ -28,7 +29,7 @@ public class Page_Home_Default extends BorderPane {
         Button deleteBtn = new Button("Delete");
         Button saveBtn = new Button("Save to File");
         Button logoutBtn = new Button("Logout");
-        VBox buttonBar = new VBox(10.0, createBtn, deleteBtn, saveBtn, logoutBtn);
+        HBox buttonBar = new HBox(10.0, createBtn, deleteBtn, saveBtn, logoutBtn);
         createBtn.setOnAction((evt -> {
             fm.registerNewAnimal();
             table2.getItems().clear();
@@ -39,19 +40,33 @@ public class Page_Home_Default extends BorderPane {
             JOptionPane.showMessageDialog(null, "File saved!", "Saved", JOptionPane.INFORMATION_MESSAGE, null);
         }));
         logoutBtn.setOnAction((evt -> {
-            stage.setScene(prescene);
-            stage.setTitle("ZooInsight - Login");
+            int logout = JOptionPane.showConfirmDialog(null, "Do you want to log out?", "Loging Out",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null);
+            if (logout == 0) {
+                stage.setScene(prescene);
+                stage.setTitle("ZooInsight - Login");
+            }
         }));
         deleteBtn.setOnAction((evt -> {
-            newtable.deleteEntry(table2);
-            fm.updateFile(table2.getItems(), "Animals");
-            JOptionPane.showMessageDialog(null, "User account deleted", "Saved", JOptionPane.INFORMATION_MESSAGE, null);
+            int check = JOptionPane.showConfirmDialog(null, "Do you want to delete selected row?", "Delete",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null);
+            if (check == 0) {
+                newtable.deleteEntry(table2);
+                fm.updateFile(table2.getItems(), "Animals");
+                JOptionPane.showMessageDialog(null, "User account deleted", "Saved", JOptionPane.INFORMATION_MESSAGE,
+                        null);
+            }
+
         }));
         this.setCenter(table2);
         this.setTop(Header);
-        this.setRight(buttonBar);
+        this.setBottom(buttonBar);
         buttonBar.setId("Btnbar");
-        buttonBar.setAlignment(Pos.CENTER);
+        buttonBar.setAlignment(Pos.TOP_CENTER);
         welcom.setAlignment(Pos.TOP_CENTER);
         utils_background bckgrnd = new utils_background();
         bckgrnd.setBgrd("resources\\background.png");

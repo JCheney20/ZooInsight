@@ -1,4 +1,4 @@
-Leo,8,Male,Mammal,Felidae,Panthera leo,Meat,Timid
+Leo,8,Male,Mammal,Felidae,Panthera leo,Meat,Excited
 Ella,25,Female,Mammal,Elephantidae,Loxodonta africana,Grass,Calm
 Eagle,12,Male,Bird,Accipitridae,Aquila chrysaetos,Meat,Proud
 Tiny,80,Male,Reptile,Testudinidae,Chelonia mydas,Algae,Relaxed

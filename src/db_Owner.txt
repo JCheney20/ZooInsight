@@ -1,3 +1,2 @@
-O4,Patrick,SMH,42916732@myuwc.ac.za,Owner,Male,0794231689,11/09/2003,PSMH,PatSMH
-O5,Test,Test,343@example.com,Owner,Other,08641696,11/10/2023,TTest,Tesest
-O8,Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,26/01/2002,JCheney,Jusney
+O6,Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,26/01/2002,JCheney,Jusney
+O9,John,Smith,jsmith@zooinsight.com,Owner,Male,0641972302,1970/04/30,JSmith,Johith

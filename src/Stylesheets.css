@@ -1,6 +1,6 @@
 .table-view{
     -fx-font-family: "Oversouth Regular DEMO";
-    -fx-base: #556b2f6e;
+    -fx-base: rgba(85, 107, 46, 0.431);
     -fx-highlight-fill:#adff2f;
     -fx-highlight-text-fill:#f0e68c;
     font-family: "Oversouth Regular DEMO";
@@ -17,6 +17,11 @@
     size: 12;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/TfFancy.ttf')
 }
+.JOptionPane{
+    background-color: #556b2f6e;
+    font-family: "Oversouth Regular DEMO";
+}
+
 .label{
     -fx-font-family: "Oversouth Regular DEMO";
     -fx-font-size: 14;
@@ -30,8 +35,9 @@
 .button {
     -fx-font-family: "Oversouth Regular DEMO";
     -fx-base: #556b2f;
+    -fx-border-radius: 5px;
     font-family: "Oversouth Regular DEMO";
-
+    border-radius: 5px;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
 
@@ -43,7 +49,14 @@
     font-size: 16;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
-
+#HomePage .button .text {
+    -fx-font-family: "Oversouth Regular DEMO";
+    -fx-font-size: 25;
+    -fx-font-colour:#f0e68c;
+    font-family: "Oversouth Regular DEMO";
+    font-size: 25;
+    src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
+}
 .radio-button {
     -fx-font-family: "Oversouth Regular DEMO";
     font-family: "Oversouth Regular DEMO";
@@ -66,8 +79,10 @@
 }
 #Btnbar{
     -fx-padding:5px;
+    -fx-fill-height: true;
     padding: 5px;
 }
+
 #Title{
     -fx-font-family: "PALMSPRINGS PERSONAL USE";
     -fx-font-size: 60;

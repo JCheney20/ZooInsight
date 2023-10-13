@@ -48,7 +48,7 @@ public class Page_Login extends BorderPane {
             in = new Scanner(new File("src\\db_" + filename + ".txt"));
             do {
                 attributes = in.nextLine().split(",");
-                records.add(new obj_User(attributes, 1));
+                records.add(new obj_User(attributes));
                 obj_User user = records.get(count);
                 if (user.getUsername().equals(username)
                         && user.getPassword().equals(password)) {
@@ -106,8 +106,6 @@ public class Page_Login extends BorderPane {
                         Page_Home_Admin home_Admin = new Page_Home_Admin(stage, getCurrentUser(), this.getScene());
                         Scene homePage_Admin = new Scene(home_Admin, 600, 600);
                         homePage_Admin.getStylesheets().add(getClass().getResource("Stylesheets.css").toExternalForm());
-                        usernameTextField.clear();
-                        passwordextField.clear();
                         stage.setScene(homePage_Admin);
                         stage.setTitle("ZooInsight - HomePage");
                         stage.minWidthProperty().bind(home_Admin.heightProperty().multiply(2));
@@ -119,6 +117,7 @@ public class Page_Login extends BorderPane {
                         Scene homePage_Default = new Scene(home_Default, 600, 600);
                         homePage_Default.getStylesheets()
                                 .add(getClass().getResource("Stylesheets.css").toExternalForm());
+
                         stage.setScene(homePage_Default);
                         stage.setTitle("ZooInsight - HomePage");
                         stage.minWidthProperty().bind(home_Default.heightProperty().multiply(2));
@@ -130,7 +129,8 @@ public class Page_Login extends BorderPane {
                 usernameTextField.clear();
                 passwordextField.clear();
             }
-
+            usernameTextField.clear();
+            passwordextField.clear();
         }));
 
         this.setTop(lbl.createNewTitle("Welcome\t to\tZooInsight"));

@@ -46,7 +46,7 @@ public class utils_newTabel {
             in = new Scanner(new File("src\\db_User.txt"));
             do {
                 attributes = in.nextLine().split(",");
-                records.add(new obj_User(attributes));
+                records.add(new obj_User(attributes, 1));
             } while (in.hasNextLine());
             Arrays.fill(attributes, null);
         } catch (IOException e) {

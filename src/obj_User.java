@@ -23,8 +23,8 @@ public class obj_User implements utils_ObjectGen {
         this.password = createPass();
     }
 
-    public obj_User(String[] user) {
-        this.IDnumber = String.valueOf(RadNum);
+    public obj_User(String[] user, int i) {
+        this.IDnumber = "0";
         this.firstname = user[0];
         this.surname = user[1];
         this.email = user[2];
@@ -36,7 +36,7 @@ public class obj_User implements utils_ObjectGen {
         this.password = createPass();
     }
 
-    public obj_User(String[] user, int i) {
+    public obj_User(String[] user) {
         this.IDnumber = user[0];
         this.firstname = user[1];
         this.surname = user[2];
@@ -174,8 +174,7 @@ public class obj_User implements utils_ObjectGen {
     private String createPass() {
         String passname = firstname.substring(0, 3);
         String passSurname = surname.substring(surname.length() - 3, surname.length());
-        long RadNum = Math.round(Math.random() * 99);
-        String password = RadNum + passname + passSurname;
+        String password = passname + passSurname;
         return password;
     }
 
@@ -184,6 +183,5 @@ public class obj_User implements utils_ObjectGen {
         username = intial + surname;
         return username;
     }
-
 
 }

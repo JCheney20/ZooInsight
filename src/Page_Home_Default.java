@@ -1,5 +1,7 @@
 package src;
 
+import javax.swing.JOptionPane;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,6 +36,7 @@ public class Page_Home_Default extends BorderPane {
         }));
         saveBtn.setOnAction((evt -> {
             fm.updateFile(table2.getItems(), "Animals");
+            JOptionPane.showMessageDialog(null, "File saved!", "Saved", JOptionPane.INFORMATION_MESSAGE, null);
         }));
         logoutBtn.setOnAction((evt -> {
             stage.setScene(prescene);
@@ -42,6 +45,7 @@ public class Page_Home_Default extends BorderPane {
         deleteBtn.setOnAction((evt -> {
             newtable.deleteEntry(table2);
             fm.updateFile(table2.getItems(), "Animals");
+            JOptionPane.showMessageDialog(null, "User account deleted", "Saved", JOptionPane.INFORMATION_MESSAGE, null);
         }));
         this.setCenter(table2);
         this.setTop(Header);

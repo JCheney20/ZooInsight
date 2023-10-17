@@ -5,5 +5,4 @@ Justin,Cheney,sjdb@example.com,Admin,Other,0765192314,12/01/2002
 John,Smith,jsmith@example.com,Caretaker,Male,04203691278,28/09/2005
 Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,26/01/2002
 Admin,Admin,test@example.com,Admin,Male,0735292679,2002/03/14
-Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,0735292679,26/01/2002
 John,Smith,jsmith@zooinsight.com,Owner,Male,0641972302,1970/04/30

@@ -1,2 +1,2 @@
 O6,Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,26/01/2002,JCheney,Jusney
-O9,John,Smith,jsmith@zooinsight.com,Owner,Male,0641972302,1970/04/30,JSmith,Johith
+O8,John,Smith,jsmith@zooinsight.com,Owner,Male,0641972302,1970/04/30,JSmith,Johith

@@ -2,4 +2,3 @@ A1,Justin,Cheney,test@example.com,Admin,Male,0753191436,09/10/2023,JCheney,Jusne
 A3,Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,076191361,26/01/2002,JCheney,Jusney
 A4,Justin,Cheney,sjdb@example.com,Admin,Other,0765192314,12/01/2002,JCheney,Jusney
 A7,Admin,Admin,test@example.com,Admin,Male,0735292679,2002/03/14,AAdmin,Admmin
-A8,Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,0735292679,26/01/2002,JCheney,Jusney

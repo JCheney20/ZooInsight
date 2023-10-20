@@ -8,6 +8,23 @@
     "javafx/lib/javafx.media.jar",
     "javafx/lib/javafx.swing.jar",
     "javafx/lib/javafx.web.jar",
-    "javafx/lib/javafx-swt.jar"
+    "javafx/lib/javafx-swt.jar",
+    "DB/mysql-connector-j-8.0.33.jar"
+  ],
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "DBConnect",
+      "database": "zooinsight",
+      "username": "AAdmin",
+      "password": "admin123"
+    }
   ]
 }

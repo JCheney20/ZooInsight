@@ -9,7 +9,8 @@
     "javafx/lib/javafx.swing.jar",
     "javafx/lib/javafx.web.jar",
     "javafx/lib/javafx-swt.jar",
-    "DB/mysql-connector-j-8.0.33.jar"
+    "DB/mysql-connector-j-8.0.33.jar",
+    "DB/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"
   ],
   "sqltools.connections": [
     {

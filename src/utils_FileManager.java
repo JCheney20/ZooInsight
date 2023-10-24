@@ -32,7 +32,7 @@ public class utils_FileManager {
         Scanner in;
         int count = 0;
         try {
-            // 1.1
+
             in = new Scanner(new File("src\\db_User.txt"));
             do {
                 attributes = in.nextLine().split(",");

@@ -22,5 +22,6 @@ VALUES (
         "Test1234"
     );
 --@block
-SELECT *
-FROM users;
+-- Delete rows from table 'TableName'
+
+

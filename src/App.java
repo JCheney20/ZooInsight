@@ -7,8 +7,7 @@ import javafx.scene.Scene;
 public class App extends Application { // ! Please ensure program is configured for access to javafx lib
     public void start(Stage stage) {
         utils_DBManager db = new utils_DBManager();
-        db.populateDB(
-                new obj_User("Justin", "Cheney", "test@example.com", "Admin", "Male", "0753191436", "2002-01-26"));
+        db.moveData();
         db.getData();
         Page_Login login = new Page_Login(stage);
         Scene loginPage = new Scene(login, 900, 250);

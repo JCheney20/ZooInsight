@@ -1,43 +1,40 @@
 package src;
 
-import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class utils_DBManager {
     static final String DB_URL = "jdbc:mysql://localhost:3306/zooinsight";
     static final String USER = "AAdmin";
     static final String PASS = "admin123";
 
-    public void moveData() {
-        ArrayList<obj_User> records = new ArrayList<>();
-        String[] attributes = new String[10];
-        Scanner in;
-        int count = 0;
-        try {
-            in = new Scanner(new File("src\\db_User.txt"));
-            do {
-                attributes = in.nextLine().split(",");
-                records.add(new obj_User(attributes, 1));
-                populateDB(records.get(count));
-                System.out.println("User added");
-                count++;
-            } while (in.hasNextLine());
-            Arrays.fill(attributes, null);
-        } catch (IOException e) {
-            System.out.println("Error: " + String.valueOf(e));
-            System.out.println("Unable to update");
-            return;
-        }
-    }
+    /*
+     * private void moveData() {
+     * ArrayList<obj_User> records = new ArrayList<>();
+     * String[] attributes = new String[10];
+     * Scanner in;
+     * int count = 0;
+     * try {
+     * in = new Scanner(new File("src\\db_User.txt"));
+     * do {
+     * attributes = in.nextLine().split(",");
+     * records.add(new obj_User(attributes, 1));
+     * populateDB(records.get(count));
+     * System.out.println("User added");
+     * count++;
+     * } while (in.hasNextLine());
+     * Arrays.fill(attributes, null);
+     * } catch (IOException e) {
+     * System.out.println("Error: " + String.valueOf(e));
+     * System.out.println("Unable to update");
+     * return;
+     * }
+     * }
+     */
 
     public void getData() {
         String QUERY = "SELECT * FROM users";

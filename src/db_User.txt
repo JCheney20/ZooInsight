@@ -1,6 +1,6 @@
-Justin,Cheney,test@example.com,Admin,Male,0753191436,09-10-2023
-Kate,Visser,test@uct.co.za,Caretaker,Female,054354532,09-10-2023
-Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,076191361,26-01-2002
-Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,26-01-2002
+Justin,Cheney,test@example.com,Admin,Male,0753191436,2023-10-09
+Kate,Visser,test@uct.co.za,Caretaker,Female,054354532,2023-10-09
+Justin,Cheney,4323819@myuwc.ac.za,Admin,Male,076191361,2002-01-26
+Justin,Cheney,4323819@uwc.ac.za,Owner,Male,0735267946,2002-01-26
 Admin,Admin,test@example.com,Admin,Male,0735292679,2002-03-14
 John,Smith,jsmith@zooinsight.com,Owner,Male,0641972302,1970-04-30

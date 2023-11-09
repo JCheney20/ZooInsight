@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class utils_DBManager {
+    private String fname, usertype;
     static final String DB_URL = "jdbc:mysql://localhost:3306/zooinsight";
     static final String USER = "AAdmin";
     static final String PASS = "admin123";
@@ -35,6 +36,21 @@ public class utils_DBManager {
      * }
      * }
      */
+    public String getFname() {
+        return fname;
+    }
+
+    public String getusertype() {
+        return usertype;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public void setusertype(String usertype) {
+        this.usertype = usertype;
+    }
 
     public void getData() {
         String QUERY = "SELECT * FROM users";
@@ -104,18 +120,18 @@ public class utils_DBManager {
 
     public boolean Login(String username, String password) {
         boolean flag = false;
-        int resultval = 0;
-        String QUERY = "EXISTS(SELECT * users WHERE username=? AND pass_word=?)";
+        String QUERY = "CALL LOGIN(?,?)";
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             PreparedStatement stmt = conn.prepareStatement(QUERY);
-            stmt.setString(0, username);
-            stmt.setString(1, password);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
+            flag = (rs != null) ? true : false;
             if (rs.next()) {
-                resultval = rs.getInt(0);
+                setFname(rs.getString("firstname"));
+                setusertype(rs.getString("usertype"));
             }
-            flag = (resultval == 1) ? true : false;
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

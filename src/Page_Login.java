@@ -1,11 +1,5 @@
 package src;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import javafx.geometry.Pos;
@@ -38,46 +32,49 @@ public class Page_Login extends BorderPane {
         this.currentacctype = currentacctype;
     }
 
-    private boolean checkfile(String username, String password, String filename) {
-        ArrayList<obj_User> records = new ArrayList<obj_User>();
-        String[] attributes = new String[10];
-        Scanner in;
-        boolean found = false;
-        int count = 0;
-        try {
-            in = new Scanner(new File("src\\db_" + filename + ".txt"));
-            do {
-                attributes = in.nextLine().split(",");
-                records.add(new obj_User(attributes));
-                obj_User user = records.get(count);
-                if (user.getUsername().equals(username)
-                        && user.getPassword().equals(password)) {
-                    found = true;
-                    setCurrentUser(user.getFirstname());
-                    setCurrentacctype(user.getUsertype());
-                    break;
-                }
-                count++;
-            } while (in.hasNextLine());
-            Arrays.fill(attributes, null);
-        } catch (IOException e) {
-            System.out.println("Error: " + String.valueOf(e));
-            System.out.println("Unable to update");
-            return found;
-        }
-        in.close();
-        return found;
-    }
+    /*
+     * private boolean checkfile(String username, String password, String filename)
+     * {
+     * ArrayList<obj_User> records = new ArrayList<obj_User>();
+     * String[] attributes = new String[10];
+     * Scanner in;
+     * boolean found = false;
+     * int count = 0;
+     * try {
+     * in = new Scanner(new File("src\\db_" + filename + ".txt"));
+     * do {
+     * attributes = in.nextLine().split(",");
+     * records.add(new obj_User(attributes));
+     * obj_User user = records.get(count);
+     * if (user.getUsername().equals(username)
+     * && user.getPassword().equals(password)) {
+     * found = true;
+     * setCurrentUser(user.getFirstname());
+     * setCurrentacctype(user.getUsertype());
+     * break;
+     * }
+     * count++;
+     * } while (in.hasNextLine());
+     * Arrays.fill(attributes, null);
+     * } catch (IOException e) {
+     * System.out.println("Error: " + String.valueOf(e));
+     * System.out.println("Unable to update");
+     * return found;
+     * }
+     * in.close();
+     * return found;
+     * }
+     */
 
     private boolean login(String username, String password) {
-        boolean checkAdmin = checkfile(username, password, "Admin");
-        boolean checkOwner = checkfile(username, password, "Owner");
-        boolean checkCaretaker = checkfile(username, password, "Caretaker");
-        if (checkAdmin == true || checkOwner == true || checkCaretaker == true) {
+        utils_DBManager DBMan = new utils_DBManager();
+        boolean accexists = DBMan.Login(username, password);
+        if (accexists) {
+            setCurrentUser(DBMan.getFname());
+            setCurrentacctype(DBMan.getusertype());
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public Page_Login(Stage stage) {

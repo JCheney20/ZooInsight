@@ -1,8 +1,8 @@
 .table-view{
     -fx-font-family: "Oversouth Regular DEMO";
     -fx-base: rgba(85, 107, 46, 0.431);
-    -fx-highlight-fill:#adff2f;
-    -fx-highlight-text-fill:#f0e68c;
+    -fx-highlight-fill:#b8c0ac;
+    -fx-highlight-text-fill:#66623e67;
     font-family: "Oversouth Regular DEMO";
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/Oversouthregular.otf')
 }
@@ -10,8 +10,8 @@
     -fx-font-family: "Honey Jar Free Trial";
     -fx-size:15;
     -fx-base: #556b2f6e;
-    -fx-highlight-fill:#adff2f;
-    -fx-highlight-text-fill:#f0e68c;
+    -fx-highlight-fill:#b8c0ac;
+    -fx-highlight-text-fill:#66623e67;
     font-family: "Honey Jar Free Trial";
     size: 12;
     src: url('https://github.com/JCheney20/ZooInsight/blob/main/resources/Fonts/TfFancy.ttf')

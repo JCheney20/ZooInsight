@@ -101,4 +101,26 @@ public class utils_DBManager {
             e.printStackTrace();
         }
     }
+
+    public boolean Login(String username, String password) {
+        boolean flag = false;
+        int resultval = 0;
+        String QUERY = "EXISTS(SELECT * users WHERE username=? AND pass_word=?)";
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            PreparedStatement stmt = conn.prepareStatement(QUERY);
+            stmt.setString(0, username);
+            stmt.setString(1, password);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                resultval = rs.getInt(0);
+            }
+            flag = (resultval == 1) ? true : false;
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

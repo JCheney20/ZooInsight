@@ -51,13 +51,13 @@ public class utils_FileManager {
         for (obj_User user : records) {
             if (user.getUsertype().equals("Caretaker")) {
                 user.setIDnumber("C" + user.getIDnumber());
-                user.writetoDB("src\\db_Caretaker.txt", 2);
+                user.writetoFile("src\\db_Caretaker.txt", 2);
             } else if (user.getUsertype().equals("Owner")) {
                 user.setIDnumber("O" + user.getIDnumber());
-                user.writetoDB("src\\db_Owner.txt", 2);
+                user.writetoFile("src\\db_Owner.txt", 2);
             } else {
                 user.setIDnumber("A" + user.getIDnumber());
-                user.writetoDB("src\\db_Admin.txt", 2);
+                user.writetoFile("src\\db_Admin.txt", 2);
             }
         }
         in.close();
@@ -66,14 +66,14 @@ public class utils_FileManager {
     public <T extends utils_ObjectGen> void updateFile(ObservableList<T> userlist, String filename) {
         clearFile("src\\db_" + filename + ".txt");
         for (T user : userlist) {
-            user.writetoDB("src\\db_" + filename + ".txt", 1);
+            user.writetoFile("src\\db_" + filename + ".txt", 1);
         }
         reassignUser();
     }
 
     public void registerNewUser(String[] userinput) {
         obj_User user = new obj_User(userinput, 1);
-        user.writetoDB("src\\db_User.txt", 1);
+        user.writetoFile("src\\db_User.txt", 1);
         reassignUser();
         JOptionPane.showMessageDialog(null, "Account successfully registered!", "Success!", JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null, "Username: " + user.getUsername() + "\nPassword: " + user.getPassword(),
@@ -101,8 +101,9 @@ public class utils_FileManager {
                 JOptionPane.QUESTION_MESSAGE);
         userinput[6] = JOptionPane.showInputDialog(null, "Please enter new user\'s Date of Birth:", "New User",
                 JOptionPane.QUESTION_MESSAGE);
+
         obj_User user = new obj_User(userinput, 1);
-        user.writetoDB("src\\db_User.txt", 1);
+        user.writetoFile("src\\db_User.txt", 1);
         reassignUser();
         JOptionPane.showMessageDialog(null, user.getFirstname() + " has been successfully added to the database.",
                 "Success!", JOptionPane.PLAIN_MESSAGE);
@@ -128,7 +129,7 @@ public class utils_FileManager {
         userinput[6] = JOptionPane.showInputDialog(null, "Please enter animal\'s Favourite Food:", "New Animal",
                 JOptionPane.QUESTION_MESSAGE);
         obj_Animal animal = new obj_Animal(userinput);
-        animal.writetoDB("src\\db_Animals.txt", 1);
+        animal.writetoFile("src\\db_Animals.txt", 1);
         JOptionPane.showMessageDialog(null, animal.getName() + " has been successfully added to the database.",
                 "Success!", JOptionPane.PLAIN_MESSAGE);
 

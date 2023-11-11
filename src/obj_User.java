@@ -1,5 +1,10 @@
 package src;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class obj_User implements utils_ObjectGen {
     private String firstname, surname, email, usertype, gender, cellnumber, dob, username, password, IDnumber;
     private long RadNum = Math.round(Math.random() * 10000);
@@ -148,9 +153,22 @@ public class obj_User implements utils_ObjectGen {
     }
 
     @Override
-    public void writetoDB() {
-        utils_DBManager DB = new utils_DBManager();
-        DB.populateDB(this);
+    public void writetoFile(String filename, int type) {
+        try {
+            FileWriter fw = new FileWriter(filename, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+            if (type == 1) {
+                out.println(this.toString());
+                out.close();
+            } else {
+                out.println(this.toString2());
+                out.close();
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + String.valueOf(e));
+            return;
+        }
     }
 
     private String createPass() {
@@ -166,4 +184,9 @@ public class obj_User implements utils_ObjectGen {
         return username;
     }
 
+    @Override
+    public void writetoDB() {
+        utils_DBManager DB = new utils_DBManager();
+        DB.populateDB(this);
+    }
 }

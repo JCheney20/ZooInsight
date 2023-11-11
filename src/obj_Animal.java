@@ -1,5 +1,10 @@
 package src;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class obj_Animal implements utils_ObjectGen {
     private String name, age, a_class, family, species, gender, mood, favFood;
 
@@ -90,6 +95,21 @@ public class obj_Animal implements utils_ObjectGen {
                 + mood;
     }
 
+    @Override
+    public void writetoFile(String filename, int i) {
+        try {
+            FileWriter fw = new FileWriter(filename, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
+            out.println(this.toString());
+            out.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + String.valueOf(e));
+            return;
+        }
+    }
+
+    @Override
     public void writetoDB() {
         utils_DBManager DB = new utils_DBManager();
         DB.populateDB(this);

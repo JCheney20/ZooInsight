@@ -5,4 +5,6 @@ public interface utils_ObjectGen {
     public String toString();
 
     public void writetoDB();
+
+    public void writetoFile(String filename, int type);
 }
